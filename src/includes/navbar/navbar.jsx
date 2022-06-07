@@ -1,10 +1,10 @@
 import React from "react";
 
-const Header = () => {
+const Navbar = () => {
 	return(
 		<React.Fragment>
 			
 		</React.Fragment>
 	);
 }
-export { Header };
+export { Navbar };
