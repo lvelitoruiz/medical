@@ -1,0 +1,33 @@
+#header {
+	.navbar_container {
+		padding: 0  40px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		
+		.logo_container {
+			.logo {
+
+			}
+		}
+		.nav {
+			display: flex;
+			align-items: center;
+			.nav_item {
+				font-size: 18px;
+				padding: 5px 10px;
+
+				.toggler_icon {
+					margin-left: 10px;
+					display: inline-block;
+					width: 18px;
+					height: 18px;
+					background-image: url();
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: cover;
+				}
+			}
+		}
+	}
+}
