@@ -1,5 +1,5 @@
-exports.createPages = async ({ actions }) => {
-  const { createPage } = actions
-  createPage({
-  })
+const path = require("path")
+
+exports.createPages = async ({}) => {
+  const {} = actions
 }
