@@ -8,7 +8,7 @@ const Nosotros = () => {
 	return(
 		<React.Fragment>
 			<Navbar />
-			Nosotros
+				Nosotros
 			<Footer />
 		</React.Fragment>
 	);

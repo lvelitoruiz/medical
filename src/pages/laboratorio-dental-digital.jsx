@@ -4,14 +4,14 @@ import React from "react";
 import { Navbar } from "../includes/navbar/Navbar";
 import { Footer } from "../includes/footer/Footer";
 
-const Contacto = () => {
+const DigitalLab = () => {
 	return(
 		<React.Fragment>
 			<Navbar />
-				Contacto
+				DigitalLab
 			<Footer />
 		</React.Fragment>
 	);
 }
 
-export default Contacto ;
+export default DigitalLab ;

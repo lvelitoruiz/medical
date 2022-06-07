@@ -17,9 +17,9 @@ const Navbar = () => {
 					<nav>
 						<ul className="nav">
 							<li className="nav_item"><Link to="/nosotros" className="nosotros">Nosotros</Link></li>
-							<li className="nav_item"><Link to="" className="diagnostico">Diagnóstico en imagenes <span className="toggler_icon"></span></Link></li>
-							<li className="nav_item"><Link to="" className="laboratorio">Laboratorio Dental Digital <span className="toggler_icon"></span></Link></li>
-							<li className="nav_item"><Link to="" className="casos_clinicos">Casos Clínicos</Link></li>
+							<li className="nav_item"><Link to="/diagnóstico-en-imagenes" className="diagnostico">Diagnóstico en imagenes<span className="toggler_icon"></span></Link></li>
+							<li className="nav_item"><Link to="/laboratorio-dental-digital" className="laboratorio">Laboratorio Dental Digital<span className="toggler_icon"></span></Link></li>
+							<li className="nav_item"><Link to="/casos-clinicos" className="casos_clinicos">Casos Clínicos</Link></li>
 							<li className="nav_item"><Link to="/contacto" className="contacto">Contacto</Link></li>
 							<li className="nav_item"><Link to="/ingresar" className="ingresar">Ingresar</Link></li>
 						</ul>

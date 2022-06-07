@@ -7,7 +7,7 @@ const IndexPage = () => {
 	return(
 		<React.Fragment>
 			<Navbar />
-			Home
+				Home
 			<Footer />
 		</React.Fragment>
 	);
