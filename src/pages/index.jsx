@@ -6,7 +6,7 @@ import { Footer } from "../includes/footer/Footer";
 import { Navbar } from "../includes/navbar/Navbar"
 import { Banner } from "../components/Pages/home/Banner/Banner";
 import { Services } from "../components/Pages/home/Services/Services";
-import { Testimonial } from "../components/Pages/home/testimonials/Testimonial";
+import { Testimonial } from "../components/Pages/home/Testimonials/Testimonial";
 
 const IndexPage = () => {
 	return(

@@ -16,18 +16,23 @@ const Testimonial = () => {
 							<div className="card_container">
 								<div className="card">
 									<div className="img_container">
+										<div className="center">
+											<img src="" alt="" />
+										</div>
 										<img src="" alt="" />
 									</div>
 									<div className="content">
 
-										<span className="card_icon"></span>
+										<div className="card_icon">
+											<img src="" alt="" />
+										</div>
 
-										<p className="title"></p>
-										<span className="description"></span>
+										<p className="content_title">El laboratorio tiene acabados de primera.</p>
+										<span className="content_description">son puntuales en la hora de entrega del caso, cuentan con una excelente comunicación y coordinación.</span>
 
 										<div className="more_info">
-											<p className="title"></p>
-											<span className="description"></span>
+											<p className="title">Walter Peña Gonzales - C.O.P. 11565</p>
+											<span className="">Clínica Dental DENTISAN</span>
 										</div>
 									</div>
 								</div>
