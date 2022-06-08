@@ -6,7 +6,7 @@ import './testimonial.scss'
 const Testimonial = () => {
 	return(
 		<React.Fragment>
-			<section id="home_info" className="">
+			<section id="home_testimonials" className="">
 				<div className="container">
 					<div className="row">
 						<div className="col">
