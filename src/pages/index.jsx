@@ -7,6 +7,7 @@ import { Navbar } from "../includes/navbar/Navbar"
 import { Banner } from "../components/Pages/home/Banner/Banner";
 import { Services } from "../components/Pages/home/Services/Services";
 import { Testimonial } from "../components/Pages/home/Testimonials/Testimonial";
+import { JoinUs } from "../components/Pages/home/Join-us/Join-us";
 
 const IndexPage = () => {
 	return(
@@ -16,6 +17,7 @@ const IndexPage = () => {
 			<Info />
 			<Services />
 			<Testimonial />
+			<JoinUs />
 			<Footer />
 		</React.Fragment>
 	);
