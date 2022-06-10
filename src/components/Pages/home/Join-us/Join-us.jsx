@@ -13,9 +13,6 @@ const JoinUs = () => {
 				<div className="container">
 					<div className="row">
 						<div className="col">
-
-
-
 							<div className="text_container">
 								<div className="icon_container">
 									<span className="icon"></span>
@@ -91,8 +88,6 @@ const JoinUs = () => {
 									</button>
 								</form>
 							</div>
-							
-							
 						</div>
 					</div>
 				</div>
