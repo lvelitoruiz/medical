@@ -27,7 +27,7 @@ const Ubications = () => {
 							<div className="text_container">
 								<h2 className="title">
 									<span className="emphasis">
-									Conoce nuestras cedes
+										Conoce nuestras cedes
 									</span>
 								</h2>	
 							</div>
@@ -35,9 +35,16 @@ const Ubications = () => {
 							<div className="selector_container">
 								{ubications.map((ubication, key) => (
 									<div className="selector" key={key}>
+										<p className="selector_title">{ubication.place}</p><span className="selector_icon"></span>
 										<UbiCard data={ubication}/>
 									</div>
 								))}
+							</div>
+
+							<div className="map_container">
+								<div className="map">
+									<img src="" alt="map" />
+								</div>
 							</div>
 						</div>
 					</div>

@@ -8,6 +8,7 @@ import { Banner } from "../components/Pages/home/Banner/Banner";
 import { Services } from "../components/Pages/home/Services/Services";
 import { Testimonial } from "../components/Pages/home/Testimonials/Testimonial";
 import { JoinUs } from "../components/Pages/home/Join-us/Join-us";
+import { Ubications } from "../components/Pages/home/Ubications/Ubications";
 
 const IndexPage = () => {
 	return(
@@ -18,6 +19,7 @@ const IndexPage = () => {
 			<Services />
 			<Testimonial />
 			<JoinUs />
+			<Ubications />
 			<Footer />
 		</React.Fragment>
 	);

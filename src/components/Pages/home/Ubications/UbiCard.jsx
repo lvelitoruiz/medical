@@ -1,10 +1,10 @@
 import React from "react";
+import './ubications.scss';
 
 const UbiCard = ({data}) => {
 	return(
 		<React.Fragment>
-			<p className="selector_title">{data.pĺace}</p><span className="selector_icon"></span>
-
+			<hr />
 			<div className="selector_content">
 				<div className="selector_group">
 					<span className="icon phone"></span><p>{data.phone}</p>
@@ -13,7 +13,7 @@ const UbiCard = ({data}) => {
 					<span className="icon email"></span><p>{data.email}</p>
 				</div>
 				<div className="selector_group">
-					<span className="icon hours"></span><p>{data.schedule}</p>
+					<span className="icon schedule"></span><p>{data.schedule}</p>
 				</div>
 				<div className="selector_group">
 					<span className="icon map"></span><p>{data.reference}</p>

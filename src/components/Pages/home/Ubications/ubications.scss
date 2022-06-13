@@ -1,6 +1,6 @@
 #home_ubications {
 	width: 100%;
-	background-color: #F0F6FF;
+	background-color: #FFFFFF;
 	padding: 50px 0px;
 
 	.title {
@@ -11,6 +11,66 @@
 
 		.emphasis {
 			font-weight: bold;
+		}
+	}
+
+	.selector_container {
+		width: 450px;
+
+		.selector {			
+			padding: 20px;
+		
+			.selector_title {
+				font-weight: bold;
+			}
+			.selector_icon {
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				margin-right: 20px;
+
+				background-image: url();
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+
+			.selector_content {
+				display: flex;
+				flex-direction: column;
+	
+				.selector_group {
+					margin: 10px 0;
+					display: flex;
+	
+					.icon {
+						display: inline-block;
+						width: 20px;
+						height: 20px;
+						margin-right: 20px;
+	
+						background-position: center;
+						background-repeat: no-repeat;
+						background-size: cover;
+						&.phone {
+							background-image: url();
+	
+						}
+						&.email {
+							background-image: url();
+	
+						}
+						&.schedule {
+							background-image: url();
+	
+						}
+						&.map {
+							background-image: url();
+	
+						}
+					}
+				}
+			}
 		}
 	}
 }
