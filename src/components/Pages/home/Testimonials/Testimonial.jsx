@@ -13,29 +13,43 @@ const Testimonial = () => {
 
 							<h2 className="title"><span className="emphasis">Testimonio de nuestros clientes</span></h2>
 							
-							<div className="card_container">
+							<div className="slider_container"> 
 								<div className="card">
-									<div className="img_container">
-										<div className="center">
-											<img src="" alt="" />
-										</div>
-										<img src="" alt="" />
+									<div>
+										<h3 className="card--title">Clínica Dental Vértiz</h3>
+										<span className="card--tag">Diagnóstico por imágenes</span>
+										<p className="card--paragraph">“En Medical Dent encontramos, un buen aliado para poder complementar los Diagnósticos de los pacientes, estoy muy contenta con el servicio y con la atención que nos brindan”.</p>
 									</div>
-									<div className="content">
-
-										<div className="card_icon">
-											<img src="" alt="" />
-										</div>
-
-										<p className="content_title">El laboratorio tiene acabados de primera.</p>
-										<span className="content_description">son puntuales en la hora de entrega del caso, cuentan con una excelente comunicación y coordinación.</span>
-
-										<div className="more_info">
-											<p className="title">Walter Peña Gonzales - C.O.P. 11565</p>
-											<span className="">Clínica Dental DENTISAN</span>
-										</div>
+									<div>
+										<p className="card--text1">Dra. Ana Trujillo Vértiz</p>
+										<p className="card--paragraph">C.O.P: 26570 - R.N.E 2435</p>
 									</div>
 								</div>
+
+								<div className="card">
+									<div>
+										<h3 className="card--title">Santana Odontología</h3>
+										<span className="card--tag">Diagnóstico por imágenes</span>
+										<p className="card--paragraph">“En primer lugar debo agradecerles a ustedes la atención. Mi paciente quedo feliz y su papá más.  Me hizo mucho hincapié en la modernidad de los equipos y en el buen trato hacia ambos”.</p>
+									</div>
+									<div>
+										<p className="card--text1">Dra. Ana Trujillo Vértiz</p>
+										<p className="card--paragraph">C.O.P: 26570 - R.N.E 2435</p>
+									</div>
+								</div>
+
+								<div className="card">
+									<div>
+										<h3 className="card--title">Consultorio Privado</h3>
+										<span className="card--tag">Diagnóstico por imágenes</span>
+										<p className="card--paragraph">“Si tenemos buena imagen tenemos buen resultado. Eso es MedicalDent Callao”.</p>
+									</div>
+									<div>
+										<p className="card--text1">Dra. Ana Trujillo Vértiz</p>
+										<p className="card--paragraph">C.O.P: 26570 - R.N.E 2435</p>
+									</div>
+								</div>
+
 							</div>
 
 						</div>

@@ -1,52 +1,56 @@
 #home_services {
 	width: 100%;
 	background-color: #ffffff;
-	padding: 50px 0px;
+	padding: 90px 0px;
 
 	.title {
 		text-align: center;
 		font-weight: 500;
 		font-size: 40px;
-		margin: 20px 0px 40px;
+		line-height: 64px;
+		margin-bottom: 40px;
 
 		.emphasis {
 			font-weight: bold;
-
 		}
 	}
 
 	.selector_container {
-		text-align: center;
 		display: flex;
-		justify-content: space-evenly;
+		justify-content: center;
 		align-items: center;
-		margin: 0 auto;
-		border-radius: 40px;
-		width: 760px;
-		height: 100px;
-		background-color: #F0F6FF;
-		color: #3C4C59;
 
-		.selected {
-			background-color: #E7485A;
-			padding: 20px 50px;
-			border-radius: 40px;
-			color: #ffffff;
-			min-width: 205px;
-		}
-		.first {
-			.icon {
+		.g-tab {
+			background-color: #F0F6FF;
+			color: #3C4C59;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 8px;
+			border-radius: 50px;
 
-			}
-		}
-		.second {
-			.icon {
+			&--item {
+				padding: 20px 50px;
+				border-radius: 40px;
+				min-width: 205px;
 
-			}
-		}
-		.third {
-			.icon {
+				&.selected {
+					background-color: #E7485A;
+					padding: 14px 60px;
+					border-radius: 40px;
+					color: #ffffff;
+					min-width: 205px;
 
+					p {
+						font-weight: 600;
+					}
+				}
+
+				p {
+					font-size: 16px;
+					line-height: 24px;
+					padding-left: 14px;
+				}
 			}
 		}
 	}
@@ -74,13 +78,15 @@
 			.card_title {
 				font-size: 24px;
 				font-weight: bold;
-				margin: 40px 0px;
+				margin: 16px 0 32px;
+				line-height: 32px;
 			}
 			.see_more {
 				padding: 10px 30px;
 				border: 1px solid #E7485A;
 				border-radius: 20px;
 				color: #E7485A;
+				font-weight: 600;
 			}
 		}
 

@@ -15,20 +15,23 @@ const Services = () => {
 							<h2 className="title"><span className="emphasis">Nuestros servicios</span></h2>
 
 							<div className="selector_container">
-								<div className="first ">
-									<span className="icon"></span>
-									<p>Diagnóstico <br /> en imágenes</p>
-								</div>
 
-								<div className="second selected">
-									<span className="icon"></span>
-									<p>Laboratorio <br /> dental digital</p>
-								</div>
+								<div className="g-tab">
+									<div className="g-tab--item">
+										<span className="icon"></span>
+										<p>Diagnóstico <br /> en imágenes</p>
+									</div>
 
-								<div className="third ">
-									<span className="icon"></span>
-									<p>Insumos <br /> dentales</p>
-								</div>
+									<div className="g-tab--item selected">
+										<span className="icon"></span>
+										<p>Laboratorio <br /> dental digital</p>
+									</div>
+
+									<div className="g-tab--item">
+										<span className="icon"></span>
+										<p>Insumos <br /> dentales</p>
+									</div>
+									</div>
 							</div>
 
 							<div className="slider_container"> 
