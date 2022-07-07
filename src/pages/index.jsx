@@ -11,7 +11,7 @@ import { JoinUs } from "../components/Pages/home/Join-us/Join-us";
 import { Ubications } from "../components/Pages/home/Ubications/Ubications";
 
 const IndexPage = () => {
-	return(
+	return (
 		<React.Fragment>
 			<Navbar />
 			<Banner />
@@ -25,4 +25,4 @@ const IndexPage = () => {
 	);
 }
 
-export default IndexPage ;
+export default IndexPage;
