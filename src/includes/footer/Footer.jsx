@@ -1,124 +1,138 @@
 import React from "react";
 
+//components
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 //utils
 import { Link } from "gatsby";
 //styles 
 import './footer.scss'
 
+import {
+  faPhone
+} from '@fortawesome/free-solid-svg-icons'
+
+import {
+	faFacebookF,
+	faInstagram,
+	faTiktok
+}	from '@fortawesome/free-brands-svg-icons'
+
 const Footer = () => {
 	return(
 		<React.Fragment>
-			<footer id="footer">
+			<footer className="bg-smoke" id="footer">
 				<div className="container">
-					<div className="sections_container">
+					<div className="row justify-center">
+						<div className="col-lg-11">
+							<div className="row pt-[50px] pb-[50px]">
 
-	{/* about us section */}
-						<section className="section about_us">
-							<Link to="">
-								<p className="title"><strong>Nosotros</strong></p>
-							</Link>
-							<Link to="">
-								¿Quiénes somos?
-							</Link>
-							<Link to="">
-								Staff
-							</Link>
-							<Link to="">
-								Trabaja con nosotros
-							</Link>
-						</section>
-
-	{/* diagnostic imaging section */}
-						<section className="section diagnostic_imaging">
-							<Link to="">
-								<p className="title"><strong>Diagnóstico en imagenes</strong></p>
-							</Link>
-							<Link to="">
-								Tomografía dental 3D
-							</Link>
-							<Link to="">
-								Radiografías extraorales
-							</Link>
-							<Link to="">
-								Radiografías intraorales
-							</Link>
-							<Link to="">
-								Análisis cafalométricos digitales
-							</Link>
-							<Link to="">
-								Fotografía clínica
-							</Link>
-							<Link to="">
-								Paquetes ortodóncicos
-							</Link>
-						</section>
-
-	{/* digital lab section */}
-						<section className="section digital_lab">
-							<Link to="">
-								<p className="title"><strong>Laboratorio dental digital</strong></p>
-							</Link>
-							<Link to="">
-								Servicio para consultorio
-							</Link>
-							<Link to="">
-								Servicio para laboratiorio
-							</Link>
-							<Link to="">
-								Programa tu orden de trabajo
-							</Link>
-
-						</section>
-
-	{/* clinical cases section */}
-						<section className="section clinical_cases">
-							<Link to="">
-								<p className="title"><strong>Casos clínicos</strong></p>
-							</Link>
-
-							<Link to="">
-								Nuestros casos
-							</Link>
-
-	{/* contact section */}
-							<section className="section contact_us">
-								<Link to="">
-									<p className="title"><strong>Contacto</strong></p>
-								</Link>
-
-								<Link to="">
-									Nuestras sedes
-								</Link>
-								
-								<div className="contact_phone">
-									<p className="title">
-										<strong>
-											<span className="phone_icon"></span>
-											(01) 680 2500
-										</strong>
-									</p>
+								{/* about us section */}
+								<div className="col-md-6 col-lg-3 mb-[40px] lg:mb-0">
+									<section className="flex flex-col items-start">	
+										<p className="text-[16px] text-gray mb-[18px]"><strong>Nosotros</strong></p>
+										<Link className="text-[16px] mb-[16px]" to="">
+											¿Quiénes somos?
+										</Link>
+										<Link className="text-[16px] mb-[16px]" to="">
+											Staff
+										</Link>
+										<Link className="text-[16px] mb-[24px]" to="">
+											Nuestras Sedes
+										</Link>
+										<button className="text-[#ffffff] rounded-full w-48 p-[6px] bg-red font-semibold text-[16px]">Afíliate</button>
+									</section>
 								</div>
-								<div className="social_links">
-									<Link to="">
-										<span className="link facebook"></span>
-									</Link>
-									<Link to="">
-										<span className="link instagram"></span>
-									</Link>
-									<Link to="">
-										<span className="link linkedin"></span>
-									</Link>
-								</div>
-							</section>
-						</section>
-					</div>
 
-	{/* copyright section */}
-					<div className="copy_section">
-						<img src="" alt="" />
-						<span>© 2022 MedicalDent - Powered by Whiz latam</span>
+								{/* diagnostic imaging section */}
+								<div className="col-md-6 col-lg-3 mb-[40px] lg:mb-0">
+									<section className="flex flex-col">
+										<p className="text-[16px] text-gray mb-[8px]"><strong>Diagnóstico en imagenes</strong></p>
+										<p className="text-[14px] text-gray mb-[8px]"><strong>Por especialidad</strong></p>
+										<Link className="text-[16px] mb-[16px]" to="">
+											Tomografía dental 3D
+										</Link>
+										<Link className="text-[16px] mb-[16px]" to="">
+											Radiografías Extraorales
+										</Link>
+										<Link className="text-[16px] mb-[16px]" to="">
+											Implantología
+										</Link>
+										<Link className="text-[16px] mb-[16px]" to="">
+											Odontología Preventiva
+										</Link>
+										<Link className="text-[16px] mb-[16px]" to="">
+											Odontopediatría
+										</Link>
+										<Link className="text-[16px] mb-[16px]" to="">
+											Ortodoncia
+										</Link>
+										<Link className="text-[16px] mb-[16px]" to="">
+											Periodoncia
+										</Link>
+										<Link className="text-[16px] mb-[16px]" to="">
+											Rehabilitación Oral
+										</Link>
+									</section>
+								</div>
+
+								{/* digital lab section */}
+								<div className="col-md-6 col-lg-3 mb-[40px] lg:mb-0">
+									<section className="flex flex-col">
+										<p className="text-[16px] text-gray mb-[18px]"><strong>Laboratorio dental digital</strong></p>
+										<Link className="text-[16px] mb-[16px]" to="">
+											Servicio para consultorio
+										</Link>
+										<Link className="text-[16px] mb-[16px]" to="">
+											Servicio para laboratiorio
+										</Link>
+										<Link className="text-[16px] mb-[16px]" to="">
+											Sistema de Flujo Digital CAD CAM
+										</Link>
+
+									</section>
+								</div>
+
+								{/* clinical cases section */}
+								<div className="col-md-6 col-lg-3 mb-[40px] lg:mb-0">
+									<section className="flex flex-col">
+										<p className="text-[16px] text-gray mb-[18px]"><strong>Casos clínicos</strong></p>
+										<Link className="text-[16px] mb-[22px]" to="">
+											Nuestros casos
+										</Link>
+									</section>
+									<section className="flex flex-col">
+										<p className="text-[16px] text-gray mb-[16px]"><strong>Contacto</strong></p>										
+										<div>
+											<p className="text-[16px] text-red">
+												<FontAwesomeIcon className="mr-[10px]" icon={faPhone} />
+												(01) 680 2500
+											</p>
+										</div>
+										<div className="flex items-center mt-[24px]">
+											<Link className="bg-[#ffffff] rounded-full w-10 h-10 mr-[24px] flex items-center justify-center" to="">
+												<FontAwesomeIcon className="text-red" icon={faFacebookF} />
+											</Link>
+											<Link className="bg-[#ffffff] rounded-full w-10 h-10 mr-[24px] flex items-center justify-center" to="">
+												<FontAwesomeIcon className="text-red" icon={faInstagram} />
+											</Link>
+											<Link className="bg-[#ffffff] rounded-full w-10 h-10 mr-[24px] flex items-center justify-center" to="">
+												<FontAwesomeIcon className="text-red" icon={faTiktok} />
+											</Link>
+										</div>
+									</section>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
+
+				{/* copyright section */}
+				<div className="flex-col md:flex-row border-t border-solid border-gray flex items-center justify-center h-32 md:h-20">
+						{/* <img src="" alt="MedicalDent Logo" className="logo"/> */}
+						<div className="bg-[url('../assets/img/logo.png')] h-7 w-36 bg-cover mb-[15px] md:mb-0"></div>
+						<span className="text-[#A1ACBB] text-[14px] lg:text-[16px] md:ml-[15px]">© 2022 MedicalDent - Powered by Whiz latam</span>
+					</div>
 			</footer>
 		</React.Fragment>
 	);

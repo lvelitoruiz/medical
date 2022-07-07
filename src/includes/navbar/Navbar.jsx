@@ -1,30 +1,108 @@
 import React from "react";
 import { Link } from "gatsby";
 
+//components
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 //styles 
 import './navbar.scss';
+
+import {
+  faAngleRight,
+	faAngleDown,
+	faBars,
+} from '@fortawesome/free-solid-svg-icons'
+
 
 const Navbar = () => {
 	return(
 		<React.Fragment>
-			<header id="header" className="">
-				<div className="container">
+			<header className="bg-smoke fixed flex items-center w-full h-20 z-10">
+				<div className="w-full mx-[15px]">
 					<div className="row">
 						<div className="col">
-							<div className="navbar_container">
-								<div className="logo_container">
+							<div className="flex items-center justify-between">
+								<div>
 									<Link to="/">
-										<img src="" alt="MedicalDent Logo" className="logo"/>
+										{/* <img src="" alt="MedicalDent Logo" className="logo"/> */}
+										<div className="bg-[url('../assets/img/logo.png')] h-10 w-52 bg-cover"></div>
 									</Link>
 								</div>
 								<nav>
-									<ul className="nav">
-										<li className="nav_item"><Link to="/nosotros" className="nosotros">Nosotros</Link></li>
-										<li className="nav_item"><Link to="/diagnóstico-en-imagenes" className="diagnostico">Diagnóstico en imagenes<span className="toggler_icon"></span></Link></li>
-										<li className="nav_item"><Link to="/laboratorio-dental-digital" className="laboratorio">Laboratorio Dental Digital<span className="toggler_icon"></span></Link></li>
-										<li className="nav_item"><Link to="/casos-clinicos" className="casos_clinicos">Casos Clínicos</Link></li>
-										<li className="nav_item"><Link to="/contacto" className="contacto">Contacto</Link></li>
-										<li className="nav_item"><Link to="/ingresar" className="login">Ingresar<span className="icon"></span></Link></li>
+									<div className="lg:hidden">
+										<FontAwesomeIcon className="ml-[10px] text-[20px] text-red" icon={faBars} />
+									</div>
+									{/* add class active */}
+									<ul className="g-nav shadow-xl lg:shadow-none">
+										<li className="font-semibold px-[15px] lg:px-[10px] py-[10px] lg:py-0">
+											<Link to="/nosotros">Nosotros</Link>
+										</li>
+										<li className="font-semibold px-[15px] lg:px-[10px] py-[10px] lg:py-0 relative">
+											<Link className="flex justify-between items-center" to="/diagnostico-en-imagenes"> 
+												<span>Diagnóstico en imagenes</span>
+												<FontAwesomeIcon className="ml-[10px] text-red" icon={faAngleDown} />
+											</Link>
+											{/* add class active */}
+											<ul className="g-nav--sub lg:shadow-xl">
+												<li className="text-red mb-[10px]">
+													Por especialidad
+												</li>
+												<li className="mb-[10px] font-medium">
+													<Link to="/diagnostico-en-imagenes">Cirugía Maxilofacial</Link>
+												</li>
+												<li className="mb-[10px] font-medium">
+													<Link to="/diagnostico-en-imagenes">Endodoncia</Link>
+												</li>
+												<li className="mb-[10px] font-medium">
+													<Link to="/diagnostico-en-imagenes">Implantología</Link>
+												</li>
+												<li className="mb-[10px] font-medium">
+													<Link to="/diagnostico-en-imagenes">Odontología Preventiva</Link>
+												</li>
+												<li className="mb-[10px] font-medium">
+													<Link to="/diagnostico-en-imagenes">Odontopediatría</Link>
+												</li>
+												<li className="mb-[10px] font-medium">
+													<Link to="/diagnostico-en-imagenes">Ortondoncia</Link>
+												</li>
+												<li className="mb-[10px] font-medium">
+													<Link to="/diagnostico-en-imagenes">Periodoncia</Link>
+												</li>
+												<li className="font-medium">
+													<Link to="/diagnostico-en-imagenes">Rehabilitación Oral</Link>
+												</li>
+											</ul>
+										</li>
+										<li className="font-semibold px-[15px] lg:px-[10px] py-[10px] lg:py-0 relative">
+											<Link to="/laboratorio-dental-digital" className="flex justify-between items-center">
+												<span>Laboratorio Dental Digital</span>
+												<FontAwesomeIcon className="ml-[10px] text-red" icon={faAngleDown} />
+											</Link>
+											{/* add class active */}
+											<ul className="g-nav--sub lg:shadow-xl">
+												<li className="mb-[10px] font-medium">
+													<Link to="/diagnóstico-en-imagenes">Servicio para Consultorio</Link>
+												</li>
+												<li className="mb-[10px] font-medium">
+													<Link to="/diagnóstico-en-imagenes">Servicio para Laboratorio</Link>
+												</li>
+												<li className="mb-[10px] font-medium">
+													<Link to="/diagnóstico-en-imagenes">Sistema de Flujo Digital CAD CAM</Link>
+												</li>
+											</ul>
+										</li>
+										<li className="font-semibold px-[15px] lg:px-[10px] py-[10px] lg:py-0">
+											<Link to="/casos-clinicos">Casos Clínicos</Link>
+										</li>
+										<li className="font-semibold px-[15px] lg:px-[10px] py-[10px] lg:py-0">
+											<Link to="/contacto">Contacto</Link>
+										</li>
+										<li className="font-semibold px-[15px] lg:pr-0 lg:pl-[10px] py-[10px] lg:py-0 whitespace-nowrap">
+											<Link className="text-[#ffffff] inline-block rounded-full py-[6px] px-[24px] bg-red font-semibold text-[16px]" to="/ingresar">
+												<span>Intranet</span>
+												<FontAwesomeIcon className="ml-[10px]" icon={faAngleRight} />
+											</Link>
+										</li>
 									</ul>
 								</nav>
 							</div>

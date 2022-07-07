@@ -1,23 +1,37 @@
 import React from "react";
 import './ubications.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+import {
+	faEnvelope,
+	faPhone,
+	faCalendar,
+	faLocationDot,
+} from '@fortawesome/free-solid-svg-icons'
 
 const UbiCard = ({data}) => {
 	return(
 		<React.Fragment>
-			<hr />
-			<div className="selector_content">
-				<div className="selector_group">
-					<span className="icon phone"></span><p>{data.phone}</p>
-				</div>
-				<div className="selector_group">
-					<span className="icon email"></span><p>{data.email}</p>
-				</div>
-				<div className="selector_group">
-					<span className="icon schedule"></span><p>{data.schedule}</p>
-				</div>
-				<div className="selector_group">
-					<span className="icon map"></span><p>{data.reference}</p>
-				</div>
+			{/* add class active */}
+			<div className={'g-accordion--container ' + data.status}>
+				<div className="py-[16px] flex flex-col">
+					<div className="my-[10px] flex items-start">
+						<FontAwesomeIcon className="mr-[10px] pt-[4px] text-gray" icon={faPhone} />
+						<p>{data.phone}</p>
+					</div>
+					<div className="my-[10px] flex items-start">
+						<FontAwesomeIcon className="mr-[10px] pt-[4px] text-gray" icon={faEnvelope} />
+						<p>{data.email}</p>
+					</div>
+					<div className="my-[10px] flex items-start">
+						<FontAwesomeIcon className="mr-[10px] pt-[4px] text-gray" icon={faCalendar} />
+						<p>{data.schedule}</p>
+					</div>
+					<div className="my-[10px] flex items-start">
+						<FontAwesomeIcon className="mr-[10px] pt-[4px] text-gray" icon={faLocationDot} />
+						<p>{data.reference}</p>
+					</div>
+					</div>
 			</div>
 		</React.Fragment>
 	);
