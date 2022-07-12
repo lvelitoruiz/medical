@@ -4,7 +4,7 @@ import React from "react"
 import { Link } from "gatsby"
 import sercons from "../../../../assets/img/SerCom.png"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCircle } from "@fortawesome/free-solid-svg-icons"
+import { faCircle, faArrowRight } from "@fortawesome/free-solid-svg-icons"
 
 const Laboratory = () => {
   return (
@@ -13,8 +13,12 @@ const Laboratory = () => {
         <div className="xl:grid xl:grid-cols-12 mb-[160px]">
           <nav className="xl:col-span-4 pt-[20px] lg:pt-[80px]">
             <ul className="text-black-light xl:text-base text-sm font-bold xl:text-left xl:ml-14 ml-5 flex overflow-x-scroll justify-between content-center xl:flex-col xl:w-3/4">
-              <li className="text-red bg-white cursor-pointer rounded-[40px] xl:p-5 lg:px-8 lg:py-4 px-4 py-4 xl:mb-4 mb-5 mr-3 border border-solid border-2 whitespace-nowrap">
+              <li className="text-red bg-white cursor-pointer rounded-[40px] xl:p-5 lg:px-8 lg:py-4 px-4 py-4 xl:mb-4 mb-5 mr-3 border border-solid border-2 whitespace-nowrap flex items-center">
                 <Link to="">Servicio para Consultorio</Link>
+                <FontAwesomeIcon
+                  className="text-red text-[18px] ml-3 w-[18px]"
+                  icon={faArrowRight}
+                />
               </li>
               <li className="hover:text-red hover:border hover:border-solid hover:border-2 border-2 border-solid border-white hover:border-red hover:cursor-pointer hover:bg-white duration-300 rounded-[40px] xl:p-5 lg:px-8 lg:py-4 px-4 py-4 xl:mb-4 mb-5 whitespace-nowrap">
                 <Link to="">Servicio para Laboratorio</Link>

@@ -3,9 +3,9 @@ import React from "react";
 import './info.scss'
 //components
 
-import icon1 from "../../../../assets/img/1.Equipos@3x.png";
-import icon2 from "../../../../assets/img/2.Staff@3x.png";
-import icon3 from "../../../../assets/img/3.Resultados_Online@3x.png";
+import icon1 from "../../../../assets/img/medical-1.png";
+import icon2 from "../../../../assets/img/medical-2.png";
+import icon3 from "../../../../assets/img/medical-3.png";
 
 const Info = () => {
 	return(

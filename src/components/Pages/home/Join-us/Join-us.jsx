@@ -30,7 +30,7 @@ const JoinUs = () => {
 
 							<div className="row">
 								<div className="col-lg-6">
-									<div className="lg:mt-[100px] mt-[50px]">
+									<div className="lg:mt-[64px] mt-[50px]">
 										<form action="" className="form">
 											<div className="row">
 												<div className="col-md-6">
