@@ -12,7 +12,7 @@ const BannerUs = () => {
 					<div className="row justify-center">
 						<div className="col-lg-11">
 							<div className="row justify-between">
-								<div className="col-md-6 col-lg-5">
+								<div className="col-lg-6">
 									<div className="w-full mt-[100px] md:mt-0 md:h-[696px] flex flex-col items-start justify-center">
 										<h2 className="text-left text-[30px] lg:text-[56px] md:text-[46px] md:leading-[62px] lg:leading-[72px] font-semibold">
 											¿Quienes Somos?

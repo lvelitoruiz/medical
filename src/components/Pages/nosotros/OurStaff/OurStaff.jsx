@@ -69,7 +69,6 @@ const OurStaff = () => {
 													<p className="text-gray font-base font-medium mb-8">Especialista en Radiología Bucal y Maxilofacial</p>
 													<Link to="/modal" className="border border-solid border-red text-red text-[16px] font-semibold py-2 px-6 rounded-full">
 														<span>Ver más</span>
-														<FontAwesomeIcon className="text-red ml-[10px]" icon={faAngleRight} />
 													</Link>
 												</div>
 											</div>
@@ -84,7 +83,6 @@ const OurStaff = () => {
 													<p className="text-gray font-base font-medium mb-8">Especialista en Radiología Bucal y Maxilofacial</p>
 													<Link to="/register" className="border border-solid border-red text-red text-[16px] font-semibold py-2 px-6 rounded-full">
 														<span>Ver más</span>
-														<FontAwesomeIcon className="text-red ml-[10px]" icon={faAngleRight} />
 													</Link>
 												</div>
 											</div>
@@ -99,7 +97,6 @@ const OurStaff = () => {
 													<p className="text-gray font-base font-medium mb-8">Especialista en Radiología Bucal y Maxilofacial</p>
 													<Link to="/red" className="border border-solid border-red text-red text-[16px] font-semibold py-2 px-6 rounded-full">
 														<span>Ver más</span>
-														<FontAwesomeIcon className="text-red ml-[10px]" icon={faAngleRight} />
 													</Link>
 												</div>
 											</div>
@@ -114,7 +111,6 @@ const OurStaff = () => {
 													<p className="text-gray font-base font-medium mb-8">Especialista en Radiología Bucal y Maxilofacial</p>
 													<Link to="/red" className="border border-solid border-red text-red text-[16px] font-semibold py-2 px-6 rounded-full">
 														<span>Ver más</span>
-														<FontAwesomeIcon className="text-red ml-[10px]" icon={faAngleRight} />
 													</Link>
 												</div>
 											</div>

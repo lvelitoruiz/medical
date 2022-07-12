@@ -12,12 +12,25 @@
   }
 }
 
+.swiper-button-prev {
+  left: -10px !important;
+}
+
+.swiper-button-next {
+  right: -10px !important;
+}
+
 .swiper-button-next,
 .swiper-button-prev {
   color: #E7485A !important;
+  font-size: 14px;
 
   @media (max-width: 768px) {
     display: none !important;
+  }
+
+  &:after {
+    font-size: 16px !important;
   }
 }
 

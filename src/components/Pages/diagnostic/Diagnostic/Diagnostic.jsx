@@ -4,7 +4,7 @@ import React from "react"
 import { Link } from "gatsby"
 import maxilofacial from "../../../../assets/img/maxilofacial.png"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCircle } from "@fortawesome/free-solid-svg-icons"
+import { faArrowRight, faCircle } from "@fortawesome/free-solid-svg-icons"
 
 const Diagnostic = () => {
   return (
@@ -16,8 +16,12 @@ const Diagnostic = () => {
               <h3 className="text-gray text-2xl font-bold mb-[10px]">Especialidades</h3>
             </div>
             <ul className="text-black-light xl:text-base text-sm font-bold xl:text-left xl:ml-14 ml-5 flex overflow-x-scroll justify-between content-center xl:flex-col xl:w-3/4">
-              <li className="text-red bg-white cursor-pointer rounded-[40px] xl:p-5 lg:px-8 lg:py-4 px-4 py-4 xl:mb-4 mb-5 mr-3 border border-solid border-2 whitespace-nowrap">
+              <li className="text-red bg-white cursor-pointer rounded-[40px] xl:p-5 lg:px-8 lg:py-4 px-4 py-4 xl:mb-4 mb-5 mr-3 border border-solid border-2 whitespace-nowrap flex items-center">
                 <Link to="">Cirugía Maxilofacial</Link>
+                <FontAwesomeIcon
+                  className="text-red text-[18px] ml-3 w-[18px]"
+                  icon={faArrowRight}
+                />
               </li>
               <li className="hover:text-red hover:border hover:border-solid hover:border-2 border-2 border-solid border-white hover:border-red hover:cursor-pointer hover:bg-white duration-300 rounded-[40px] xl:p-5 lg:px-8 lg:py-4 px-4 py-4 xl:mb-4 mb-5 whitespace-nowrap">
                 <Link to="">Endodoncia</Link>

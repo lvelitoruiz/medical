@@ -57,7 +57,7 @@ const Testimonial = () => {
 											<div className="md:w-[50%] md:h-[420px]">
 												<img className="bg-cover w-full rounded-[24px] h-full object-cover" src={testimonio} alt="" />
 											</div>
-											<div className="md:w-[50%] items-start bg-[#ffffff] rounded-[24px] flex flex-col justify-between md:px-[60px] my-[20px] lg:mb-0">
+											<div className="md:w-[50%] items-start bg-[#ffffff] rounded-[24px] flex flex-col justify-between md:px-[60px] my-[20px] lg:my-0">
 												<div>
 													<img className="mb-3 h-12 w-12 bg-cover object-cover" src={icon1} alt="" />
 													<h3 className="text-red text-[20px] font-semibold mb-[8px]">Clínica Dental Vértiz</h3>
@@ -76,7 +76,7 @@ const Testimonial = () => {
 											<div className="md:w-[50%] md:h-[420px]">
 												<img className="bg-cover w-full rounded-[24px] h-full object-cover" src={testimonio} alt="" />
 											</div>
-											<div className="md:w-[50%] items-start bg-[#ffffff] rounded-[24px] flex flex-col justify-between md:px-[60px] my-[20px] lg:mb-0">
+											<div className="md:w-[50%] items-start bg-[#ffffff] rounded-[24px] flex flex-col justify-between md:px-[60px] my-[20px] lg:my-0">
 												<div>
 													<img className="mb-3 h-12 w-12 bg-cover object-cover" src={icon1} alt="" />
 													<h3 className="text-red text-[20px] font-semibold mb-[8px]">Clínica Dental Vértiz</h3>
@@ -95,7 +95,7 @@ const Testimonial = () => {
 											<div className="md:w-[50%] md:h-[420px]">
 												<img className="bg-cover w-full rounded-[24px] h-full object-cover" src={testimonio} alt="" />
 											</div>
-											<div className="md:w-[50%] items-start bg-[#ffffff] rounded-[24px] flex flex-col justify-between md:px-[60px] my-[20px] lg:mb-0">
+											<div className="md:w-[50%] items-start bg-[#ffffff] rounded-[24px] flex flex-col justify-between md:px-[60px] my-[20px] lg:my-0">
 												<div>
 													<img className="mb-3 h-12 w-12 bg-cover object-cover" src={icon1} alt="" />
 													<h3 className="text-red text-[20px] font-semibold mb-[8px]">Clínica Dental Vértiz</h3>
@@ -114,7 +114,7 @@ const Testimonial = () => {
 											<div className="md:w-[50%] md:h-[420px]">
 												<img className="bg-cover w-full rounded-[24px] h-full object-cover" src={testimonio} alt="" />
 											</div>
-											<div className="md:w-[50%] items-start bg-[#ffffff] rounded-[24px] flex flex-col justify-between md:px-[60px] my-[20px] lg:mb-0">
+											<div className="md:w-[50%] items-start bg-[#ffffff] rounded-[24px] flex flex-col justify-between md:px-[60px] my-[20px] lg:my-0">
 												<div>
 													<img className="mb-3 h-12 w-12 bg-cover object-cover" src={icon1} alt="" />
 													<h3 className="text-red text-[20px] font-semibold mb-[8px]">Clínica Dental Vértiz</h3>
@@ -133,7 +133,7 @@ const Testimonial = () => {
 											<div className="md:w-[50%] md:h-[420px]">
 												<img className="bg-cover w-full rounded-[24px] h-full object-cover" src={testimonio} alt="" />
 											</div>
-											<div className="md:w-[50%] items-start bg-[#ffffff] rounded-[24px] flex flex-col justify-between md:px-[60px] my-[20px] lg:mb-0">
+											<div className="md:w-[50%] items-start bg-[#ffffff] rounded-[24px] flex flex-col justify-between md:px-[60px] my-[20px] lg:my-0">
 												<div>
 													<img className="mb-3 h-12 w-12 bg-cover object-cover" src={icon1} alt="" />
 													<h3 className="text-red text-[20px] font-semibold mb-[8px]">Clínica Dental Vértiz</h3>
