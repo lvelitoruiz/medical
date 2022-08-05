@@ -25,12 +25,12 @@
 	}
 
 	&--sub {
-    padding: 15px;
+    	padding: 15px;
 		display: none;
 
 		@media (min-width: 1024px) {
 			position: absolute;
-			top: 52px;
+			top: 22px;
 			left: -10px;
 			background: white;
 			padding: 20px;
@@ -41,7 +41,7 @@
 			padding: 20px;
 		}
 
-		&.active {
+		.sub-container:hover & {
 			display: block;
 		}
 	}

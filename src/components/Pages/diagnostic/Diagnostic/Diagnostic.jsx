@@ -5,8 +5,66 @@ import { Link } from "gatsby"
 import maxilofacial from "../../../../assets/img/maxilofacial.png"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowRight, faCircle } from "@fortawesome/free-solid-svg-icons"
+import './Diagnostic.scss';
 
-const Diagnostic = () => {
+import { useSelector } from "react-redux";
+import { useState } from "react";
+import { useEffect } from "react";
+import ReactMarkdown from "react-markdown";
+import { IMGURL } from "../../../../consts/constants"
+import { useDispatch } from 'react-redux';
+import { startLoadingBanners } from '../../../../actions/banners';
+import { startLoadingDiagnostics } from "../../../../actions/diagnostics"
+
+const Diagnostic = ({elementIndex}) => {
+
+  const dispatch = useDispatch();
+
+	useEffect( () => {
+		
+		dispatch( startLoadingBanners( ) );
+		dispatch( startLoadingDiagnostics( ) );
+
+	}, [dispatch]);
+
+  const [ servicesDigital,setDiagnostics ] = useState([]);
+  const [ centerImage,setCenterImage ] = useState("");
+  const [ centerContent,setCenterContent ] = useState("");
+  const {diagnostics} = useSelector( state => state.diagnostics);
+
+  useEffect(() => {
+    console.log('this element is: ',diagnostics);
+		let info = [];
+		diagnostics.map( diagnostic => {
+			info.push(diagnostic.attributes)
+		});
+		setDiagnostics(info);
+	} , [diagnostics]);
+
+  useEffect(() => {
+    if(servicesDigital.length && elementIndex !== null) {
+      handleChange(elementIndex);
+    }
+  },[servicesDigital,elementIndex])
+
+  const handleChange = (key) => {
+    let diagnostic = [];
+		servicesDigital.map( element => {
+			diagnostic.push(element)
+		});
+		diagnostic.forEach( (item, index) => {
+			if(index === key){
+				item.status = 'active';
+        setCenterImage(item.imagedate.data.attributes.url);
+        setCenterContent(item.Content);
+			} else {
+				item.status = '';
+			}
+		});
+		
+		setDiagnostics(diagnostic);
+  }
+
   return (
     <React.Fragment>
       <div className="container">
@@ -16,40 +74,32 @@ const Diagnostic = () => {
               <h3 className="text-gray text-2xl font-bold mb-[10px]">Especialidades</h3>
             </div>
             <ul className="text-black-light xl:text-base text-sm font-bold xl:text-left xl:ml-14 ml-5 flex overflow-x-scroll justify-between content-center xl:flex-col xl:w-3/4">
-              <li className="text-red bg-white cursor-pointer rounded-[40px] xl:p-5 lg:px-8 lg:py-4 px-4 py-4 xl:mb-4 mb-5 mr-3 border border-solid border-2 whitespace-nowrap flex items-center">
-                <Link to="">Cirugía Maxilofacial</Link>
-                <FontAwesomeIcon
-                  className="text-red text-[18px] ml-3 w-[18px]"
-                  icon={faArrowRight}
-                />
-              </li>
-              <li className="hover:text-red hover:border hover:border-solid hover:border-2 border-2 border-solid border-white hover:border-red hover:cursor-pointer hover:bg-white duration-300 rounded-[40px] xl:p-5 lg:px-8 lg:py-4 px-4 py-4 xl:mb-4 mb-5 whitespace-nowrap">
-                <Link to="">Endodoncia</Link>
-              </li>
-              <li className="hover:text-red hover:border hover:border-solid hover:border-2 border-2 border-solid border-white hover:border-red hover:cursor-pointer hover:bg-white duration-300 rounded-[40px] xl:p-5 lg:px-8 lg:py-4 px-4 py-4 xl:mb-4 mb-5 whitespace-nowrap">
-                <Link to="">Implantología</Link>
-              </li>
-              <li className="hover:text-red hover:border hover:border-solid hover:border-2 border-2 border-solid border-white hover:border-red hover:cursor-pointer hover:bg-white duration-300 rounded-[40px] xl:p-5 lg:px-8 lg:py-4 px-4 py-4 xl:mb-4 mb-5 whitespace-nowrap">
-                <Link to="">Odontología Preventiva</Link>
-              </li>
-              <li className="hover:text-red hover:border hover:border-solid hover:border-2 border-2 border-solid border-white hover:border-red hover:cursor-pointer hover:bg-white duration-300 rounded-[40px] xl:p-5 lg:px-8 lg:py-4 px-4 py-4 xl:mb-4 mb-5 whitespace-nowrap">
-                <Link to="">Odontopediatría</Link>
-              </li>
-              <li className="hover:text-red hover:border hover:border-solid hover:border-2 border-2 border-solid border-white hover:border-red hover:cursor-pointer hover:bg-white duration-300 rounded-[40px] xl:p-5 lg:px-8 lg:py-4 px-4 py-4 xl:mb-4 mb-5 whitespace-nowrap">
-                <Link to="">Ortodoncia</Link>
-              </li>
-              <li className="hover:text-red hover:border hover:border-solid hover:border-2 border-2 border-solid border-white hover:border-red hover:cursor-pointer hover:bg-white duration-300 rounded-[40px] xl:p-5 lg:px-8 lg:py-4 px-4 py-4 xl:mb-4 mb-5 whitespace-nowrap">
-                <Link to="">Periodoncia</Link>
-              </li>
-              <li className="hover:text-red hover:border hover:border-solid hover:border-2 border-2 border-solid border-white hover:border-red hover:cursor-pointer hover:bg-white duration-300 rounded-[40px] xl:p-5 lg:px-8 lg:py-4 px-4 py-4 xl:mb-4 mb-5 whitespace-nowrap">
-                <Link to="">Rehabilitación Oral</Link>
-              </li>
+                        {
+													(servicesDigital.length) ? 
+													servicesDigital.map( (elmt,index) => {
+														return(
+                            <li onClick={() => handleChange(index)} className={`${elmt.status == 'active' ? 'text-red bg-white ' : '' } hover:text-red cursor-pointer rounded-[40px] xl:p-5 lg:px-8 lg:py-4 px-4 py-4 xl:mb-4 mb-5 mr-3 border border-solid border-2 whitespace-nowrap flex items-center`} key={index}>
+                              <p>{elmt.title}</p>
+                              {
+                                (elmt.status == 'active') ? <FontAwesomeIcon
+                                      className="text-red text-[18px] ml-3 w-[18px]"
+                                      icon={faArrowRight}
+                                    /> : ""
+                              }
+                            </li>
+                          )
+													})
+													: ""
+												}
             </ul>
           </nav>
           <section className="col-span-8 pt-[20px] lg:pt-[80px]">
             <div className="md:grid md:grid-cols-12 p-5 lg:p-10 bg-smoke rounded-[24px] gap-6">
-              <div className="md:col-span-6 mb-16 pr-4">
-                <div className="mb-[40px]">
+              <div className="md:col-span-6 mb-16 pr-4" id="markdown-content">
+                <ReactMarkdown>
+                   { (servicesDigital.length) ? centerContent : "" }
+                </ReactMarkdown>
+                {/* <div className="mb-[40px]">
                   <h3 className="text-2xl font-bold mb-7">
                     Estudios Radiográficos
                   </h3>
@@ -100,10 +150,10 @@ const Diagnostic = () => {
                       </p>
                     </li>
                   </ul>
-                </div>
+                </div> */}
               </div>
               <div className="md:col-span-6 object-center">
-                <img src={maxilofacial} alt="" className="lg:max-w-full" />
+              { (servicesDigital.length && centerImage !== "") ? <img src={`${IMGURL}${centerImage}`} alt="" className="lg:max-w-full" /> : "" }
               </div>
             </div>
           </section>

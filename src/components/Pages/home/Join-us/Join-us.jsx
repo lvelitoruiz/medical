@@ -1,4 +1,5 @@
 import React from "react";
+import { Formik } from 'formik';
 
 //styles 
 import './join-us.scss';
@@ -28,6 +29,26 @@ const JoinUs = () => {
 								</div>
 							</div>
 
+							<Formik
+								initialValues={{ email: '', password: '' }}
+								validate={values => {
+									const errors = {};
+									if (!values.email) {
+									errors.email = 'Required';
+									} else if (
+									!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+									) {
+									errors.email = 'Invalid email address';
+									}
+									return errors;
+								}}
+								onSubmit={(values, { setSubmitting }) => {
+									setTimeout(() => {
+									alert(JSON.stringify(values, null, 2));
+									setSubmitting(false);
+									}, 400);
+								}}
+							>
 							<div className="row">
 								<div className="col-lg-6">
 									<div className="lg:mt-[64px] mt-[50px]">
@@ -113,6 +134,7 @@ const JoinUs = () => {
 									</div>
 								</div>
 							</div>
+							</Formik>
 						</div>
 					</div>
 				</div>

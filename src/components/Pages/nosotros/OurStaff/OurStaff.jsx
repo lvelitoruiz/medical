@@ -9,12 +9,29 @@ import doc from "../../../../assets/img/Gisella@3x.png";
 import { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import { useSelector } from "react-redux";
+import { useState } from "react";
+import { useEffect } from "react";
+
 import {
   faAngleLeft,
 	faAngleRight,
 } from '@fortawesome/free-solid-svg-icons'
+import { IMGURL } from "../../../../consts/constants";
 
 const OurStaff = () => {
+
+	const [ info, setInfo ] = useState([]);
+
+	const {staff} = useSelector( state => state.staff);
+
+	useEffect(() => {
+		let info = [];
+		staff.map( item => {
+			info.push(item.attributes)
+		});
+		setInfo(info);
+	} , [staff]);
 	
 	const pagination = {
 		clickable: true,
@@ -59,62 +76,26 @@ const OurStaff = () => {
 										onSlideChange={() => console.log('slide change')}
 										onSwiper={(swiper) => console.log(swiper)}
 									>
-										<SwiperSlide>
-											<div className="">
-												<div className="flex flex-col justify-start items-center text-center mb-[40px] lg:mb-0">
-													<div className="w-full lg:w-[300px] rounded-[20px]">
-														<img src={doc} alt="" />
-													</div>
-													<p className="text-[18px] lg:text-[24px] font-bold mt-[26px] mb-[10px] leading-[32px]">Dra. Magaly Quispe</p>
-													<p className="text-gray font-base font-medium mb-8">Especialista en Radiología Bucal y Maxilofacial</p>
-													<Link to="/modal" className="border border-solid border-red text-red text-[16px] font-semibold py-2 px-6 rounded-full">
-														<span>Ver más</span>
-													</Link>
-												</div>
-											</div>
-										</SwiperSlide>
-										<SwiperSlide>
-											<div className="">
-												<div className="flex flex-col justify-start items-center text-center mb-[40px] lg:mb-0">
-													<div className="w-full lg:w-[300px] rounded-[20px]">
-														<img src={doc} alt="" />
-													</div>
-													<p className="text-[18px] lg:text-[24px] font-bold mt-[26px] mb-[10px] leading-[32px]">Dra. Úrsula Galindo</p>
-													<p className="text-gray font-base font-medium mb-8">Especialista en Radiología Bucal y Maxilofacial</p>
-													<Link to="/register" className="border border-solid border-red text-red text-[16px] font-semibold py-2 px-6 rounded-full">
-														<span>Ver más</span>
-													</Link>
-												</div>
-											</div>
-										</SwiperSlide>
-										<SwiperSlide>
-											<div className="">
-												<div className="flex flex-col justify-start items-center text-center mb-[40px] lg:mb-0">
-													<div className="w-full lg:w-[300px] rounded-[20px]">
-														<img src={doc} alt="" />
-													</div>
-													<p className="text-[18px] lg:text-[24px] font-bold mt-[26px] mb-[10px] leading-[32px]">Dra. Jennifer Mayuri</p>
-													<p className="text-gray font-base font-medium mb-8">Especialista en Radiología Bucal y Maxilofacial</p>
-													<Link to="/red" className="border border-solid border-red text-red text-[16px] font-semibold py-2 px-6 rounded-full">
-														<span>Ver más</span>
-													</Link>
-												</div>
-											</div>
-										</SwiperSlide>
-										<SwiperSlide>
-											<div className="">
-												<div className="flex flex-col justify-start items-center text-center mb-[40px] lg:mb-0">
-													<div className="w-full lg:w-[300px] rounded-[20px]">
-														<img src={doc} alt="" />
-													</div>
-													<p className="text-[18px] lg:text-[24px] font-bold mt-[26px] mb-[10px] leading-[32px]">Dra. Jennifer Mayuri</p>
-													<p className="text-gray font-base font-medium mb-8">Especialista en Radiología Bucal y Maxilofacial</p>
-													<Link to="/red" className="border border-solid border-red text-red text-[16px] font-semibold py-2 px-6 rounded-full">
-														<span>Ver más</span>
-													</Link>
-												</div>
-											</div>
-										</SwiperSlide>
+										{
+											(info.length) ? info.map( (element,index) => {
+												return(
+													<SwiperSlide key={index}>
+														<div className="">
+															<div className="flex flex-col justify-start items-center text-center mb-[40px] lg:mb-0">
+																<div className="w-full lg:w-[300px] rounded-[20px]">
+																	<img src={`${IMGURL}${element.imagedate.data.attributes.url}`} alt="" />
+																</div>
+																<p className="text-[18px] lg:text-[24px] font-bold mt-[26px] mb-[10px] leading-[32px]">{element.name}</p>
+																<p className="text-gray font-base font-medium mb-8">{element.specialty}</p>
+																<Link to="/modal" className="border border-solid border-red text-red text-[16px] font-semibold py-2 px-6 rounded-full">
+																	<span>Ver más</span>
+																</Link>
+															</div>
+														</div>
+													</SwiperSlide>
+												)
+											}) : ""
+										}
 									</Swiper>
 								</div>
 							</div>

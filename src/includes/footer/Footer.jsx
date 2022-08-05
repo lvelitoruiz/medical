@@ -18,7 +18,33 @@ import {
 	faTiktok
 }	from '@fortawesome/free-brands-svg-icons'
 
+import { useSelector } from "react-redux";
+import { useState } from "react";
+import { useEffect } from "react";
+
 const Footer = () => {
+	const [ servicesDigital,setDiagnostics ] = useState([]);
+	const [ servicesImages,setServices ] = useState([]);
+
+	const {diagnostics} = useSelector( state => state.diagnostics);
+	const {laboratories} = useSelector( state => state.laboratories);
+
+	useEffect(() => {
+		let info = [];
+		diagnostics.map( diagnostic => {
+			info.push(diagnostic.attributes)
+		});
+		setDiagnostics(info);
+	} , [diagnostics]);
+
+	useEffect(() => {
+		let info = [];
+		laboratories.map( laboratory => {
+			info.push(laboratory.attributes)
+		});
+		setServices(info);
+	} , [laboratories]);
+
 	return(
 		<React.Fragment>
 			<footer className="bg-smoke" id="footer">
@@ -49,30 +75,15 @@ const Footer = () => {
 									<section className="flex flex-col">
 										<p className="text-[16px] text-gray mb-[8px]"><strong>Diagnóstico en imagenes</strong></p>
 										<p className="text-[14px] text-gray mb-[8px]"><strong>Por especialidad</strong></p>
-										<Link className="text-[16px] mb-[16px]" to="">
-											Tomografía dental 3D
-										</Link>
-										<Link className="text-[16px] mb-[16px]" to="">
-											Radiografías Extraorales
-										</Link>
-										<Link className="text-[16px] mb-[16px]" to="">
-											Implantología
-										</Link>
-										<Link className="text-[16px] mb-[16px]" to="">
-											Odontología Preventiva
-										</Link>
-										<Link className="text-[16px] mb-[16px]" to="">
-											Odontopediatría
-										</Link>
-										<Link className="text-[16px] mb-[16px]" to="">
-											Ortodoncia
-										</Link>
-										<Link className="text-[16px] mb-[16px]" to="">
-											Periodoncia
-										</Link>
-										<Link className="text-[16px] mb-[16px]" to="">
-											Rehabilitación Oral
-										</Link>
+										{
+											(servicesDigital.length) ? 
+											servicesDigital.map( (elmt,index) => {
+												return(<Link className="text-[16px] mb-[16px]" to="/diagnostico-en-imagenes" key={index}>
+													{elmt.title}
+												</Link>)
+											})
+											: ""
+										}
 									</section>
 								</div>
 
@@ -80,15 +91,15 @@ const Footer = () => {
 								<div className="col-md-6 col-lg-3 mb-[40px] lg:mb-0">
 									<section className="flex flex-col">
 										<p className="text-[16px] text-gray mb-[18px]"><strong>Laboratorio dental digital</strong></p>
-										<Link className="text-[16px] mb-[16px]" to="">
-											Servicio para consultorio
-										</Link>
-										<Link className="text-[16px] mb-[16px]" to="">
-											Servicio para laboratiorio
-										</Link>
-										<Link className="text-[16px] mb-[16px]" to="">
-											Sistema de Flujo Digital CAD CAM
-										</Link>
+										{
+											(servicesImages.length) ? 
+											servicesImages.map( (elmt,index) => {
+												return(<Link className="text-[16px] mb-[16px]" to="/laboratorio-dental-digital" key={index}>
+													{elmt.title}
+												</Link>)
+											})
+											: ""
+										}
 
 									</section>
 								</div>
