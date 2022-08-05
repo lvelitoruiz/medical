@@ -13,8 +13,36 @@ import {
 	faBars,
 } from '@fortawesome/free-solid-svg-icons'
 
+import { useSelector } from "react-redux";
+import { useState } from "react";
+import { useEffect } from "react";
 
-const Navbar = () => {
+
+const Navbar = ( { diagnosticsMenu = false, laboratoriesMenu = false} ) => {
+
+	const [ servicesDigital,setDiagnostics ] = useState([]);
+	const [ servicesImages,setServices ] = useState([]);
+
+	const {diagnostics} = useSelector( state => state.diagnostics);
+	const {laboratories} = useSelector( state => state.laboratories);
+
+	useEffect(() => {
+		let info = [];
+		diagnostics.map( diagnostic => {
+			info.push(diagnostic.attributes)
+		});
+		setDiagnostics(info);
+	} , [diagnostics]);
+
+	useEffect(() => {
+		let info = [];
+		laboratories.map( laboratory => {
+			info.push(laboratory.attributes)
+		});
+		setServices(info);
+	} , [laboratories]);
+
+
 	return(
 		<React.Fragment>
 			<header className="bg-smoke fixed flex items-center w-full h-20 z-10">
@@ -37,59 +65,50 @@ const Navbar = () => {
 										<li className="font-semibold px-[15px] lg:px-[10px] py-[10px] lg:py-0">
 											<Link to="/nosotros">Nosotros</Link>
 										</li>
-										<li className="font-semibold px-[15px] lg:px-[10px] py-[10px] lg:py-0 relative">
-											<Link className="flex justify-between items-center" to="/diagnostico-en-imagenes"> 
+										<li className="font-semibold px-[15px] lg:px-[10px] py-[10px] lg:py-0 relative sub-container">
+											<Link className="flex justify-between items-center" to=""> 
 												<span>Diagnóstico en imagenes</span>
 												<FontAwesomeIcon className="ml-[10px] text-red" icon={faAngleDown} />
 											</Link>
 											{/* add class active */}
-											<ul className="g-nav--sub lg:shadow-xl">
+											{ (diagnosticsMenu) ? <ul className="g-nav--sub lg:shadow-xl">
 												<li className="text-red mb-[10px]">
 													Por especialidad
 												</li>
-												<li className="mb-[10px] font-medium">
-													<Link to="/diagnostico-en-imagenes">Cirugía Maxilofacial</Link>
-												</li>
-												<li className="mb-[10px] font-medium">
-													<Link to="/diagnostico-en-imagenes">Endodoncia</Link>
-												</li>
-												<li className="mb-[10px] font-medium">
-													<Link to="/diagnostico-en-imagenes">Implantología</Link>
-												</li>
-												<li className="mb-[10px] font-medium">
-													<Link to="/diagnostico-en-imagenes">Odontología Preventiva</Link>
-												</li>
-												<li className="mb-[10px] font-medium">
-													<Link to="/diagnostico-en-imagenes">Odontopediatría</Link>
-												</li>
-												<li className="mb-[10px] font-medium">
-													<Link to="/diagnostico-en-imagenes">Ortondoncia</Link>
-												</li>
-												<li className="mb-[10px] font-medium">
-													<Link to="/diagnostico-en-imagenes">Periodoncia</Link>
-												</li>
-												<li className="font-medium">
-													<Link to="/diagnostico-en-imagenes">Rehabilitación Oral</Link>
-												</li>
-											</ul>
+
+												{
+													(servicesDigital.length) ? 
+													servicesDigital.map( (elmt,index) => {
+														return(<li className="mb-[10px] font-medium hover:font-bold" key={index}>
+															<Link 
+																to="/diagnostico-en-imagenes"
+																state={{ getElement: index }}
+															>{elmt.title}</Link>
+														</li>)
+													})
+													: ""
+												}
+											</ul> : "" }
 										</li>
-										<li className="font-semibold px-[15px] lg:px-[10px] py-[10px] lg:py-0 relative">
-											<Link to="/laboratorio-dental-digital" className="flex justify-between items-center">
+										<li className="font-semibold px-[15px] lg:px-[10px] py-[10px] lg:py-0 relative sub-container">
+											<Link to="" className="flex justify-between items-center">
 												<span>Laboratorio Dental Digital</span>
 												<FontAwesomeIcon className="ml-[10px] text-red" icon={faAngleDown} />
 											</Link>
 											{/* add class active */}
-											<ul className="g-nav--sub lg:shadow-xl">
-												<li className="mb-[10px] font-medium">
-													<Link to="/diagnóstico-en-imagenes">Servicio para Consultorio</Link>
-												</li>
-												<li className="mb-[10px] font-medium">
-													<Link to="/diagnóstico-en-imagenes">Servicio para Laboratorio</Link>
-												</li>
-												<li className="mb-[10px] font-medium">
-													<Link to="/diagnóstico-en-imagenes">Sistema de Flujo Digital CAD CAM</Link>
-												</li>
-											</ul>
+											{ (laboratoriesMenu) ? <ul className="g-nav--sub lg:shadow-xl">
+												{
+													(servicesImages.length) ? 
+													servicesImages.map( (elmt,index) => {
+														return(<li className="mb-[10px] font-medium hover:font-bold" key={index}>
+															<Link
+																to="/laboratorio-dental-digital"
+																state={{ getElement: index }}>{elmt.title}</Link>
+														</li>)
+													})
+													: ""
+												}
+											</ul> : ""}
 										</li>
 										<li className="font-semibold px-[15px] lg:px-[10px] py-[10px] lg:py-0">
 											<Link to="/casos-clinicos">Casos Clínicos</Link>

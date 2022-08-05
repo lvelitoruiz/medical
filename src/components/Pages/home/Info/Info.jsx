@@ -3,11 +3,26 @@ import React from "react";
 import './info.scss'
 //components
 
-import icon1 from "../../../../assets/img/medical-1.png";
-import icon2 from "../../../../assets/img/medical-2.png";
-import icon3 from "../../../../assets/img/medical-3.png";
+import { useSelector } from "react-redux";
+import { useState } from "react";
+import { useEffect } from "react";
+import { IMGURL } from "../../../../consts/constants";
+
 
 const Info = () => {
+
+	const [ info, setInfo ] = useState([]);
+
+	const {advantages} = useSelector( state => state.advantages);
+
+	useEffect(() => {
+		let info = [];
+		advantages.map( advantage => {
+			info.push(advantage.attributes)
+		});
+		setInfo(info);
+	} , [advantages]);
+
 	return(
 		<React.Fragment>
 			<section className="py-[40px] lg:py-[90px]">
@@ -20,47 +35,27 @@ const Info = () => {
 								</div>
 							</div>
 							<div className="row justify-around">
-								<div className="col-md-5 col-lg-3">
-									<div className="flex flex-col text-center items-center justify-start mb-[40px] lg:mb-0">
-										<div className="w-40 h-40 bg-smoke rounded-full flex items-center justify-center">
-											<img className="h-36 w-36 bg-cover object-cover" src={icon1} alt="" />
-										</div>
-										<p className="text-red lg:text-[24px] text-[18px] font-semibold my-[20px]">
-											Equipamiento digital<br/>de vanguardia
-										</p>
-										<span className="text-black leading-[24px]">
-											Todo nuestro equipamiento dental es digital para así brindar la mejor calidad de imagen y más importante ofrecer un software gratuito en donde se podrá usar una variedad de herramientas de edición para un estudio más profundo en su consultorio.
-										</span>
-									</div>
-								</div>
 
-								<div className="col-md-5 col-lg-3">
-									<div className="flex flex-col text-center items-center justify-start mb-[40px] lg:mb-0">
-										<div className="w-40 h-40 bg-smoke rounded-full flex items-center justify-center">
-											<img className="h-36 w-36 bg-cover object-cover" src={icon2} alt="" />
-										</div>
-										<p className="text-red lg:text-[24px] text-[18px] font-semibold my-[20px]">
-											Staff con amplia experiencia
-										</p>
-										<span className="text-black leading-[24px]">
-											Nuestro grupo humano de colaboradores cuenta con años de experiencia en el sector y están en constante formación para brindar una atención de calidad y diagnóstico preciso.
-										</span>
-									</div>
-								</div>
-
-								<div className="col-md-5 col-lg-3">
-									<div className="flex flex-col text-center items-center justify-start mb-[40px] lg:mb-0">
-										<div className="w-40 h-40 bg-smoke rounded-full flex items-center justify-center">
-											<img className="h-36 w-36 bg-cover object-cover" src={icon3} alt="" />
-										</div>
-										<p className="text-red lg:text-[24px] text-[18px] font-semibold my-[20px]">
-											Plataforma<br/>en la Nube
-										</p>
-										<span className="text-black leading-[24px]">
-											Cree órdenes digitales, consulte los resultados de sus pacientes en tiempo real y descárguelos las veces que quiera dentro de nuestra nube. Cree su cuenta con nosotros y disfrute de todos los beneficios que nuestra plataforma digital tiene para usted.
-										</span>
-									</div>
-								</div>
+								{
+									(info.length) ? 
+										info.map( (element,index) => {
+											return (
+												<div className="col-md-5 col-lg-3" key={index}>
+													<div className="flex flex-col text-center items-center justify-start mb-[40px] lg:mb-0">
+														<div className="w-40 h-40 bg-smoke rounded-full flex items-center justify-center">
+															<img className="h-36 w-36 bg-cover object-cover" src={`${IMGURL}${element.imagedate.data.attributes.url}`} alt="" />
+														</div>
+														<p className="text-red lg:text-[24px] text-[18px] font-semibold my-[20px]">
+															{element.title}
+														</p>
+														<span className="text-black leading-[24px]">
+															{element.description}
+														</span>
+													</div>
+												</div>
+											)
+										}) : ''
+								}
 							</div>	
 						</div>
 					</div>

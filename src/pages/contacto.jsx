@@ -10,7 +10,7 @@ import { Form } from "../components/Pages/contacto/form";
 const Contacto = () => {
 	return(
 		<React.Fragment>
-			<Navbar />
+			<Navbar  laboratoriesMenu={true} diagnosticsMenu={true} />
 			<Form />
 			<Ubications />
 			<Footer />

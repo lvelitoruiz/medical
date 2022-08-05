@@ -1,37 +1,60 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 //styles 
 import './ubications.scss';
 //components
 import UbiCard from "./UbiCard";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { GoogleMap, LoadScript, Marker, useGoogleMap } from '@react-google-maps/api';
 
 import {
 	faAngleDown,
 } from '@fortawesome/free-solid-svg-icons'
+import { GKEY } from "../../../../consts/constants";
 
 const Ubications = () => {
-	const ubications = [
-		{status: 'active', place: 'Jesus Maria', phone:'(01)3874207 / 985 266 451', email: 'admin@medicaldent.com', schedule: 'Lunes a sabado: 8am a 1pm y 2pm a 8pm', reference: 'av. Próceres de la independencia 1724 2do piso (a 1 cuadra. de estación de tren los jardines'},
-		{status: '', place: 'Ate Vitarte', phone:'(01)3874207 / 985 266 451', email: 'admin@medicaldent.com', schedule: 'Lunes a sabado: 8am a 1pm y 2pm a 8pm', reference: 'av. Próceres de la independencia 1724 2do piso (a 1 cuadra. de estación de tren los jardines'}, 
-		{status: '', place: 'San Juan de Lurigancho', phone:'(01)3874207 / 985 266 451', email: 'admin@medicaldent.com', schedule: 'Lunes a sabado: 8am a 1pm y 2pm a 8pm', reference: 'av. Próceres de la independencia 1724 2do piso (a 1 cuadra. de estación de tren los jardines'}, 
-		{status: '', place: 'Los olivos', phone:'(01)3874207 / 985 266 451', email: 'admin@medicaldent.com', schedule: 'Lunes a sabado: 8am a 1pm y 2pm a 8pm', reference: 'av. Próceres de la independencia 1724 2do piso (a 1 cuadra. de estación de tren los jardines'}, 
-		{status: '', place: 'Villa el salvador', phone:'(01)3874207 / 985 266 451', email: 'admin@medicaldent.com', schedule: 'Lunes a sabado: 8am a 1pm y 2pm a 8pm', reference: 'av. Próceres de la independencia 1724 2do piso (a 1 cuadra. de estación de tren los jardines'}, 
-		{status: '', place: 'Callao', phone:'(01)3874207 / 985 266 451', email: 'admin@medicaldent.com', schedule: 'Lunes a sabado: 8am a 1pm y 2pm a 8pm', reference: 'av. Próceres de la independencia 1724 2do piso (a 1 cuadra. de estación de tren los jardines'}, 
-		{status: '', place: 'Chorrillos', phone:'(01)3874207 / 985 266 451', email: 'admin@medicaldent.com', schedule: 'Lunes a sabado: 8am a 1pm y 2pm a 8pm', reference: 'av. Próceres de la independencia 1724 2do piso (a 1 cuadra. de estación de tren los jardines'},
-	]
+
+	const containerStyle = {
+		width: '100%',
+		height: '100%'
+	  };
 
 	const [ ubication, setUbication ] = useState([]);
+	const [ center, setCenter ] = useState({});
+	const [mapInstance, setMapInstance] = useState(null);
+
+	const { locations } = useSelector( state => state.locations)
+
+	const onMapLoad = (map) => {
+		setMapInstance(map);
+	};
 
 	useEffect(() => {
-		setUbication(ubications);
-	} , []);
+		let ubication = [];
+		locations.map( location => {
+			ubication.push(location.attributes)
+		});
+		ubication.map( ubic => {
+			const coord = { lat: parseFloat(ubic.lat), lng: parseFloat(ubic.long)}
+			ubic.coords = coord;
+		});
+		setUbication(ubication);
+		if(ubication.length) {
+			let { coords } = ubication[0];
+			setCenter(coords);
+		}
+	} , [locations]);
 
 	const handleAccordion = (key) => {
-		console.log('key', key);
+		let ubications = [];
+		locations.map( location => {
+			ubications.push(location.attributes)
+		});
 		ubications.forEach( (item, index) => {
 			if(index === key){
 				item.status = 'active';
+				mapInstance.panTo(item.coords);
 			} else {
 				item.status = '';
 			}
@@ -59,7 +82,7 @@ const Ubications = () => {
 										{ubication.map((ubication, key) => (
 											<div className="bg-smoke mb-[15px] rounded-[20px]" key={key}>
 												<div className="cursor-pointer flex items-center justify-between py-[10px] px-[20px]" onClick={() => handleAccordion(key)}>
-													<p className="font-semibold">{ubication.place}</p>
+													<p className="font-semibold">{ubication.title}</p>
 													<FontAwesomeIcon className="text-red" icon={faAngleDown} />
 												</div>
 												<UbiCard data={ubication}/>
@@ -68,10 +91,24 @@ const Ubications = () => {
 									</div>
 								</div>
 
-								<div className="col-md-6 col-lg-6">
-									<div>
-										<img src="" alt="map" className="bg-[#cccccc] h-[650px] rounded-3xl" />
-									</div>
+								<div className="col-md-6 col-lg-6 h-[650px] rounded-3xl">
+									<LoadScript
+										googleMapsApiKey={GKEY}
+									>
+										<GoogleMap
+											mapContainerStyle={containerStyle}
+											center={center}
+											zoom={18}
+											onLoad={onMapLoad}
+											>
+												{ubication.map( ( item,index ) => (<Marker
+															key={index}
+															position={item.coords}
+														/>))
+													}
+												
+										</GoogleMap>
+									</LoadScript>
 								</div>
 							</div>	
 						</div>
