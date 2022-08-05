@@ -128,7 +128,7 @@ const Services = () => {
 												)
 											}) : servicesImages.map( (elmt,index) => {
 												return(
-													<SwiperSlide key={index} className="col-12 col-md-6 col-lg-6">
+													<SwiperSlide key={index} className="col-12 col-md-6 col-lg-4">
 														<div className="flex flex-col justify-start items-center text-center mb-[40px] lg:mb-0">
 															<div className="w-full lg:w-[300px] lg:h-[300px] rounded-[20px]">
 																<img src={`${IMGURL}${elmt.imagedate.data.attributes.url}`} alt="" />
