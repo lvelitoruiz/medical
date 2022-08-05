@@ -12,8 +12,20 @@ import { useState } from "react";
 import { useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import { IMGURL } from "../../../../consts/constants"
+import { useDispatch } from 'react-redux';
+import { startLoadingBanners } from '../../../../actions/banners';
+import { startLoadingDiagnostics } from "../../../../actions/diagnostics"
 
 const Diagnostic = ({elementIndex}) => {
+
+  const dispatch = useDispatch();
+
+	useEffect( () => {
+		
+		dispatch( startLoadingBanners( ) );
+		dispatch( startLoadingDiagnostics( ) );
+
+	}, [dispatch]);
 
   const [ servicesDigital,setDiagnostics ] = useState([]);
   const [ centerImage,setCenterImage ] = useState("");
@@ -21,6 +33,7 @@ const Diagnostic = ({elementIndex}) => {
   const {diagnostics} = useSelector( state => state.diagnostics);
 
   useEffect(() => {
+    console.log('this element is: ',diagnostics);
 		let info = [];
 		diagnostics.map( diagnostic => {
 			info.push(diagnostic.attributes)
@@ -28,19 +41,11 @@ const Diagnostic = ({elementIndex}) => {
 		setDiagnostics(info);
 	} , [diagnostics]);
 
-  useEffect( () => {
-    if(elementIndex !== null && servicesDigital.length) {
-      servicesDigital.forEach( (item, index) => {
-        if(index === elementIndex){
-          item.status = 'active';
-          setCenterImage(item.imagedate.data.attributes.url);
-          setCenterContent(item.Content);
-        } else {
-          item.status = '';
-        }
-      });
+  useEffect(() => {
+    if(servicesDigital.length && elementIndex !== null) {
+      handleChange(elementIndex);
     }
-  },[elementIndex])
+  },[servicesDigital,elementIndex])
 
   const handleChange = (key) => {
     let diagnostic = [];
