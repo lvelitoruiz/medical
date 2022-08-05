@@ -12,7 +12,7 @@ import { OurStaff } from "../components/Pages/nosotros/OurStaff/OurStaff";
 const Nosotros = () => {
 	return(
 		<React.Fragment>
-			<Navbar />
+			<Navbar laboratoriesMenu={true} diagnosticsMenu={true} />
 			<BannerUs />
 			<AboutUs />
 			<OurValues />

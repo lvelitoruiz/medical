@@ -4,8 +4,11 @@ import './services.scss';
 //components
 import { Link } from "gatsby";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import laboratory from "../../../../assets/img/laboratoryservice@3x.png";
-import laboratory3 from "../../../../assets/img/sistemaflujo@3x.png";
+import laboratory from "../../../../assets/img/laboratoryservice@3x.png"
+import { useSelector } from "react-redux";
+import { useState } from "react";
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -15,8 +18,44 @@ import {
 	faTooth,
 	faFlask,
 } from '@fortawesome/free-solid-svg-icons'
+import { useEffect } from "react";
+import { IMGURL } from "../../../../consts/constants";
 
 const Services = () => {
+
+	const [ isServices,setIsServices ] = useState(true);
+	const [ servicesImages,setServices ] = useState([]);
+	const [ servicesDigital,setDiagnostics ] = useState([]);
+
+	const {laboratories} = useSelector( state => state.laboratories);
+	const {diagnostics} = useSelector( state => state.diagnostics);
+
+	useEffect(() => {
+		let info = [];
+		laboratories.map( laboratory => {
+			info.push(laboratory.attributes)
+		});
+		setServices(info);
+	} , [laboratories]);
+
+	useEffect(() => {
+		let info = [];
+		diagnostics.map( diagnostic => {
+			info.push(diagnostic.attributes)
+		});
+		setDiagnostics(info);
+	} , [diagnostics]);
+
+	const changeService = () => {
+		setIsServices(!isServices);
+	}
+
+	const pagination = {
+		clickable: true,
+		renderBullet: function (index, className) {
+		  return '<span class="w-3 h-3 mx-[6px] bg-black rounded-full cursor-pointer ' + className + '"></span>'
+		},
+	};
 
 	return(
 		<React.Fragment>
@@ -32,11 +71,11 @@ const Services = () => {
 							<div className="row items-center justify-center mb-[48px]">
 								<div className="col-md-6 col-lg-5">
 									<div className="bg-white flex p-[8px] rounded-[40px] md:rounded-full flex-col md:flex-row">
-										<div className="px-[30px] duration-300 hover:bg-red hover:text-[#ffffff] py-[10px] rounded-full w-full flex items-center justify-center cursor-pointer">
+										<div onClick={changeService} className={`px-[30px] duration-300 ${isServices ? 'bg-red text-[#ffffff] ' : '' } hover:bg-red hover:text-[#ffffff] py-[10px] rounded-full w-full flex items-center justify-center cursor-pointer`}>
 											<FontAwesomeIcon className="text-[30px] mr-[20px]" icon={faTooth} />
 											<p>Diagnóstico<br />en imágenes</p>
 										</div>
-										<div className="px-[30px] duration-300 bg-red text-[#ffffff] py-[10px] rounded-full w-full flex items-center justify-center cursor-pointer">
+										<div onClick={changeService} className={`px-[30px] duration-300 ${!isServices ? 'bg-red text-[#ffffff] ' : '' } hover:bg-red hover:text-[#ffffff] py-[10px] rounded-full w-full flex items-center justify-center cursor-pointer`}>
 											<FontAwesomeIcon className="text-[30px] mr-[20px]" icon={faFlask} />
 											<p>Laboratorio<br />Dental Digital</p>
 										</div>
@@ -48,40 +87,62 @@ const Services = () => {
 									<div className="row items-center justify-center mb-[70px]">
 										<p className="text-[#607D8B] text-[24px]">Laboratorio Dental implementado con Flujo Digital CAD CAM:</p>
 									</div>
-									<div className="row justify-around">
-										<div className="col-md-5 col-lg-3">
-											<div className="flex flex-col justify-start items-center text-center mb-[40px] lg:mb-0">
-												<div className="w-full lg:w-[300px] lg:h-[300px] rounded-[20px]">
-													<img src={laboratory} alt="" />
-												</div>
-												<p className="text-[18px] lg:text-[24px] font-bold mt-[16px] mb-[32px] leading-[32px]">Servicio para <br /> consultorio</p>
-												<Link to="" className="border border-solid border-red text-red text-[16px] font-semibold py-2 px-[35px] rounded-full">
-													<span>Ver más</span>
-												</Link>
-											</div>
-										</div>
-										<div className="col-md-5 col-lg-3">
-											<div className="flex flex-col justify-start items-center text-center mb-[40px] lg:mb-0">
-												<div className="w-full lg:w-[300px] lg:h-[300px] rounded-[20px]">
-													<img src={laboratory} alt="" />
-												</div>
-												<p className="text-[18px] lg:text-[24px] font-bold mt-[16px] mb-[32px] leading-[32px]">Servicio para <br /> consultorio</p>
-												<Link to="" className="border border-solid border-red text-red text-[16px] font-semibold py-2 px-[35px] rounded-full">
-													<span>Ver más</span>
-												</Link>
-											</div>
-										</div>
-										<div className="col-md-5 col-lg-3">
-											<div className="flex flex-col justify-start items-center text-center mb-[40px] lg:mb-0">
-												<div className="w-full lg:w-[300px] lg:h-[300px] rounded-[20px]">
-													<img src={laboratory3} alt="" />
-												</div>
-												<p className="text-[18px] lg:text-[24px] font-bold mt-[16px] mb-[32px] leading-[32px]">Servicio para <br /> consultorio</p>
-												<Link to="" className="border border-solid border-red text-red text-[16px] font-semibold py-2 px-[35px] rounded-full">
-													<span>Ver más</span>
-												</Link>
-											</div>
-										</div>		
+									<div className="row justify-around grid-cols-12">
+										<Swiper
+											modules={[Pagination]}
+											pagination={pagination}
+											breakpoints={{
+												640: {
+													slidesPerView: 1,
+													spaceBetween: 0,
+												},
+												768: {
+													slidesPerView: 2,
+													spaceBetween: 0,
+												},
+												1024: {
+													slidesPerView: 2,
+													spaceBetween: 0,
+												},
+											}}
+											spaceBetween={0}
+											slidesPerView={3}
+											onSlideChange={() => console.log('slide change')}
+											onSwiper={(swiper) => console.log(swiper)}
+										>
+										{
+											(isServices) ? 
+											servicesDigital.map( (elmt,index) => {
+												return(
+													<SwiperSlide key={index} className="col-12 col-md-6 col-lg-4">
+															<div className="flex flex-col justify-start items-center text-center mb-[40px] lg:mb-0">
+																<div className="w-full lg:w-[300px] lg:h-[300px] rounded-[20px]">
+																	<img src={`${IMGURL}${elmt.imagedate.data.attributes.url}`} alt="" />
+																</div>
+																<p className="text-[18px] lg:text-[24px] font-bold mt-[16px] mb-[32px] leading-[32px]">{elmt.title}</p>
+																<Link to="" className="border border-solid border-red text-red text-[16px] font-semibold py-2 px-[35px] rounded-full">
+																	<span>{elmt.button}</span>
+																</Link>
+															</div>
+													</SwiperSlide>
+												)
+											}) : servicesImages.map( (elmt,index) => {
+												return(
+													<SwiperSlide key={index} className="col-12 col-md-6 col-lg-4">
+														<div className="flex flex-col justify-start items-center text-center mb-[40px] lg:mb-0">
+															<div className="w-full lg:w-[300px] lg:h-[300px] rounded-[20px]">
+																<img src={`${IMGURL}${elmt.imagedate.data.attributes.url}`} alt="" />
+															</div>
+															<p className="text-[18px] lg:text-[24px] font-bold mt-[16px] mb-[32px] leading-[32px]">{elmt.title}</p>
+															<Link to="" className="border border-solid border-red text-red text-[16px] font-semibold py-2 px-[35px] rounded-full">
+																<span>{elmt.button}</span>
+															</Link>
+														</div>
+													</SwiperSlide>
+												)
+											})
+										}
+										</Swiper>
 									</div>
 								</div>
 							</div>

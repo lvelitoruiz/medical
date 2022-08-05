@@ -8,11 +8,29 @@ import testimonio from "../../../../assets/img/testimonio.png";
 import { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import { useSelector } from "react-redux";
+import { useState } from "react";
+import { useEffect } from "react";
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { IMGURL } from "../../../../consts/constants";
 
 const Testimonial = () => {
+
+	const [ clients, setClients ] = useState([]);
+
+	const {testimonials} = useSelector( state => state.testimonials);
+
+	useEffect(() => {
+		let info = [];
+		testimonials.map( testimonial => {
+			info.push(testimonial.attributes)
+		});
+		setClients(info);
+	} , [testimonials]);
+
 
 	const pagination = {
 		clickable: true,
@@ -52,116 +70,33 @@ const Testimonial = () => {
 											onSlideChange={() => console.log('slide change')}
 											onSwiper={(swiper) => console.log(swiper)}
 										>
-									<SwiperSlide>		
-										<div className="md:flex items-center">
-											<div className="md:w-[50%] md:h-[420px]">
-												<img className="bg-cover w-full rounded-[24px] h-full object-cover" src={testimonio} alt="" />
-											</div>
-											<div className="md:w-[50%] items-start bg-[#ffffff] rounded-[24px] flex flex-col justify-between md:px-[60px] my-[20px] lg:my-0">
-												<div>
-													<img className="mb-3 h-12 w-12 bg-cover object-cover" src={icon1} alt="" />
-													<h3 className="text-red text-[20px] font-semibold mb-[8px]">Clínica Dental Vértiz</h3>
-													<span className="bg-smoke text-[12px] py-[6px] px-[10px] font-semibold rounded-[40px]">Diagnóstico por imágenes</span>
-													<p className="leading-[24px] mt-[15px]">“En Medical Dent encontramos, un buen aliado para poder complementar los Diagnósticos de los pacientes, estoy muy contenta con el servicio y con la atención que nos brindan”.</p>
-												</div>
-												<div className="mt-[30px]">
-													<p className="font-semibold">Dra. Ana Trujillo Vértiz</p>
-													<p className="leading-[24px]">C.O.P: 26570 - R.N.E 2435</p>
-												</div>
-											</div>
-										</div>
-									</SwiperSlide>
-									<SwiperSlide>		
-										<div className="md:flex items-center">
-											<div className="md:w-[50%] md:h-[420px]">
-												<img className="bg-cover w-full rounded-[24px] h-full object-cover" src={testimonio} alt="" />
-											</div>
-											<div className="md:w-[50%] items-start bg-[#ffffff] rounded-[24px] flex flex-col justify-between md:px-[60px] my-[20px] lg:my-0">
-												<div>
-													<img className="mb-3 h-12 w-12 bg-cover object-cover" src={icon1} alt="" />
-													<h3 className="text-red text-[20px] font-semibold mb-[8px]">Clínica Dental Vértiz</h3>
-													<span className="bg-smoke text-[12px] py-[6px] px-[10px] font-semibold rounded-[40px]">Diagnóstico por imágenes</span>
-													<p className="leading-[24px] mt-[15px]">“En Medical Dent encontramos, un buen aliado para poder complementar los Diagnósticos de los pacientes, estoy muy contenta con el servicio y con la atención que nos brindan”.</p>
-												</div>
-												<div className="mt-[30px]">
-													<p className="font-semibold">Dra. Ana Trujillo Vértiz</p>
-													<p className="leading-[24px]">C.O.P: 26570 - R.N.E 2435</p>
-												</div>
-											</div>
-										</div>
-									</SwiperSlide>
-									<SwiperSlide>		
-										<div className="md:flex items-center">
-											<div className="md:w-[50%] md:h-[420px]">
-												<img className="bg-cover w-full rounded-[24px] h-full object-cover" src={testimonio} alt="" />
-											</div>
-											<div className="md:w-[50%] items-start bg-[#ffffff] rounded-[24px] flex flex-col justify-between md:px-[60px] my-[20px] lg:my-0">
-												<div>
-													<img className="mb-3 h-12 w-12 bg-cover object-cover" src={icon1} alt="" />
-													<h3 className="text-red text-[20px] font-semibold mb-[8px]">Clínica Dental Vértiz</h3>
-													<span className="bg-smoke text-[12px] py-[6px] px-[10px] font-semibold rounded-[40px]">Diagnóstico por imágenes</span>
-													<p className="leading-[24px] mt-[15px]">“En Medical Dent encontramos, un buen aliado para poder complementar los Diagnósticos de los pacientes, estoy muy contenta con el servicio y con la atención que nos brindan”.</p>
-												</div>
-												<div className="mt-[30px]">
-													<p className="font-semibold">Dra. Ana Trujillo Vértiz</p>
-													<p className="leading-[24px]">C.O.P: 26570 - R.N.E 2435</p>
-												</div>
-											</div>
-										</div>
-									</SwiperSlide>
-									<SwiperSlide>		
-										<div className="md:flex items-center">
-											<div className="md:w-[50%] md:h-[420px]">
-												<img className="bg-cover w-full rounded-[24px] h-full object-cover" src={testimonio} alt="" />
-											</div>
-											<div className="md:w-[50%] items-start bg-[#ffffff] rounded-[24px] flex flex-col justify-between md:px-[60px] my-[20px] lg:my-0">
-												<div>
-													<img className="mb-3 h-12 w-12 bg-cover object-cover" src={icon1} alt="" />
-													<h3 className="text-red text-[20px] font-semibold mb-[8px]">Clínica Dental Vértiz</h3>
-													<span className="bg-smoke text-[12px] py-[6px] px-[10px] font-semibold rounded-[40px]">Diagnóstico por imágenes</span>
-													<p className="leading-[24px] mt-[15px]">“En Medical Dent encontramos, un buen aliado para poder complementar los Diagnósticos de los pacientes, estoy muy contenta con el servicio y con la atención que nos brindan”.</p>
-												</div>
-												<div className="mt-[30px]">
-													<p className="font-semibold">Dra. Ana Trujillo Vértiz</p>
-													<p className="leading-[24px]">C.O.P: 26570 - R.N.E 2435</p>
-												</div>
-											</div>
-										</div>
-									</SwiperSlide>
-									<SwiperSlide>		
-										<div className="md:flex items-center">
-											<div className="md:w-[50%] md:h-[420px]">
-												<img className="bg-cover w-full rounded-[24px] h-full object-cover" src={testimonio} alt="" />
-											</div>
-											<div className="md:w-[50%] items-start bg-[#ffffff] rounded-[24px] flex flex-col justify-between md:px-[60px] my-[20px] lg:my-0">
-												<div>
-													<img className="mb-3 h-12 w-12 bg-cover object-cover" src={icon1} alt="" />
-													<h3 className="text-red text-[20px] font-semibold mb-[8px]">Clínica Dental Vértiz</h3>
-													<span className="bg-smoke text-[12px] py-[6px] px-[10px] font-semibold rounded-[40px]">Diagnóstico por imágenes</span>
-													<p className="leading-[24px] mt-[15px]">“En Medical Dent encontramos, un buen aliado para poder complementar los Diagnósticos de los pacientes, estoy muy contenta con el servicio y con la atención que nos brindan”.</p>
-												</div>
-												<div className="mt-[30px]">
-													<p className="font-semibold">Dra. Ana Trujillo Vértiz</p>
-													<p className="leading-[24px]">C.O.P: 26570 - R.N.E 2435</p>
-												</div>
-											</div>
-										</div>
-									</SwiperSlide>
-									{/* <SwiperSlide>
-										<div className="">
-											<div className="card items-start bg-[#ffffff] rounded-[24px] flex flex-col justify-between min-h-[370px] p-[32px] mb-[40px] lg:mb-0">
-												<div>
-													<h3 className="text-red text-[20px] font-semibold mb-[8px]">Consultorio Privado</h3>
-													<span className="bg-smoke text-[12px] py-[6px] px-[10px] font-semibold rounded-[40px]">Diagnóstico por imágenes</span>
-													<p className="leading-[24px] mt-[15px]">“Si tenemos buena imagen tenemos buen resultado. Eso es MedicalDent Callao”.</p>
-												</div>
-												<div>
-													<p className="font-semibold">Dra. Ana Trujillo Vértiz</p>
-													<p className="leading-[24px]">C.O.P: 26570 - R.N.E 2435</p>
-												</div>
-											</div>
-										</div>
-									</SwiperSlide> */}
+									
+									{
+										(clients.length) ? 
+											clients.map( (client,index) => {
+												return (
+													<SwiperSlide key={index}>
+														<div className="md:flex items-center">
+															<div className="md:w-[50%] md:h-[420px]">
+																<img className="bg-cover w-full rounded-[24px] h-full object-cover" src={`${IMGURL}${client.imagedate.data.attributes.url}`} alt="" />
+															</div>
+															<div className="md:w-[50%] items-start bg-[#ffffff] rounded-[24px] flex flex-col justify-between md:px-[60px] my-[20px] lg:my-0">
+																<div>
+																	<img className="mb-3 h-12 w-12 bg-cover object-cover" src={require(`../../../../assets/img/${client.icon}`).default} alt="" />
+																	<h3 className="text-red text-[20px] font-semibold mb-[8px]">{client.title}</h3>
+																	<span className="bg-smoke text-[12px] py-[6px] px-[10px] font-semibold rounded-[40px]">{client.subtitle}</span>
+																	<p className="leading-[24px] mt-[15px]">{client.description}</p>
+																</div>
+																<div className="mt-[30px]">
+																	<p className="font-semibold">{client.leader}</p>
+																	<p className="leading-[24px]">{client.detail}</p>
+																</div>
+															</div>
+														</div>
+													</SwiperSlide>
+												)
+											}) : ""
+									}
 								</Swiper>
 							</div>
 						</div>

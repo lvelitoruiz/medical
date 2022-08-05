@@ -9,7 +9,9 @@ import {
 	faLocationDot,
 } from '@fortawesome/free-solid-svg-icons'
 
+
 const UbiCard = ({data}) => {
+
 	return(
 		<React.Fragment>
 			{/* add class active */}
@@ -29,7 +31,7 @@ const UbiCard = ({data}) => {
 					</div>
 					<div className="my-[10px] flex items-start">
 						<FontAwesomeIcon className="mr-[10px] pt-[4px] text-gray" icon={faLocationDot} />
-						<p>{data.reference}</p>
+						<p>{data.address}</p>
 					</div>
 					</div>
 			</div>
