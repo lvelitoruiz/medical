@@ -1,13 +1,22 @@
 import React from "react";
 
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
 import { IMGURL } from "../../../../consts/constants";
+import { startLoadingValues } from "../../../../actions/values";
 
 //components
 
 const OurValues = () => {
+
+	const dispatch = useDispatch();
+
+	useEffect( () => {
+	
+		dispatch( startLoadingValues( ) );
+
+	}, [dispatch]);
 
 	const [ info, setInfo ] = useState([]);
 
@@ -58,7 +67,7 @@ const OurValues = () => {
 								{
 									(info.length) ? info.slice(-2).map( (element,index) => {
 										return(
-											<div className="col-md-5 col-lg-3">
+											<div className="col-md-5 col-lg-3" key={index}>
 												<div className="flex flex-col text-center items-center justify-start mb-[40px] lg:mb-0">
 													<div className="w-40 h-40 bg-[#ffffff] rounded-full flex items-center justify-center">
 														<img src={`${IMGURL}${element.imagedate.data.attributes.url}`} alt="" />

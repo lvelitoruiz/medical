@@ -9,7 +9,7 @@ import doc from "../../../../assets/img/Gisella@3x.png";
 import { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
 
@@ -18,8 +18,17 @@ import {
 	faAngleRight,
 } from '@fortawesome/free-solid-svg-icons'
 import { IMGURL } from "../../../../consts/constants";
+import { startLoadingStaff } from "../../../../actions/staff";
 
 const OurStaff = () => {
+
+	const dispatch = useDispatch();
+
+	useEffect( () => {
+	
+		dispatch( startLoadingStaff( ) );
+
+	}, [dispatch]);
 
 	const [ info, setInfo ] = useState([]);
 

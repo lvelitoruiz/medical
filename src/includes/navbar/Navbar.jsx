@@ -17,8 +17,21 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
 
+import { useDispatch } from 'react-redux';
+import { startLoadingDiagnostics } from "../../actions/diagnostics";
+import { startLoadingLaboratories } from "../../actions/laboratories";
+
 
 const Navbar = ( { diagnosticsMenu = false, laboratoriesMenu = false} ) => {
+
+	const dispatch = useDispatch();
+
+	useEffect( () => {
+	
+		dispatch( startLoadingLaboratories( ) );
+		dispatch( startLoadingDiagnostics( ) );
+
+	}, [dispatch]);
 
 	const [ servicesDigital,setDiagnostics ] = useState([]);
 	const [ servicesImages,setServices ] = useState([]);
