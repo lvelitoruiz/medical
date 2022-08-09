@@ -1,5 +1,5 @@
 import React from "react";
-import { Formik, Form, Field } from 'formik';
+import { Formik } from 'formik';
 
 //styles 
 import './join-us.scss';
@@ -7,7 +7,25 @@ import './join-us.scss';
 
 import icon1 from "../../../../assets/img/redodontologos@3x.png";
 
+import { useSelector } from "react-redux";
+import { useState } from "react";
+import { useEffect } from "react";
+import { element } from "prop-types";
+
+
+
 const JoinUs = () => {
+
+	const [ servicesDigital,setDiagnostics ] = useState([]);
+	const {diagnostics} = useSelector( state => state.diagnostics);
+
+	useEffect(() => {
+		let info = [];
+		diagnostics.map( diagnostic => {
+			info.push(diagnostic.attributes)
+		});
+		setDiagnostics(info);
+	} , [diagnostics]);
 
 	return (
 		<React.Fragment>
@@ -86,8 +104,8 @@ const JoinUs = () => {
 										errors.cop = "Este campo es requerido"
 									} else if (/\D/.test(values.cop)) {
 										errors.cop = "Este es un campo solamente numérico"
-									} else if (values.cellphone.length < 9) {
-										errors.cop = "El número celular debe tener 4 dígitos"
+									} else if (values.cop.length < 4) {
+										errors.cop = "El número COP debe tener 4 dígitos"
 									}
 
 									return errors;
@@ -163,10 +181,10 @@ const JoinUs = () => {
 														<div className="col-md-6">
 															<div className="mb-[20px]">
 																<p className="font-normal pb-[8px] pl-[16px]">Celular</p>
-																<input className="py-[8px] px-[16px] rounded-full w-full bg-[#ffffff] placeholder:text-gray placeholder:font-normal" type="number" placeholder="945910122" />
-																<p onChange={handleChange}
+																<input onChange={handleChange}
 																	onBlur={handleBlur}
-																	value={values.cellphone} name="cellphone" className="p-2 text-red">{errors.cellphone && touched.cellphone && errors.cellphone}</p>
+																	value={values.cellphone} name="cellphone" className="py-[8px] px-[16px] rounded-full w-full bg-[#ffffff] placeholder:text-gray placeholder:font-normal" type="number" placeholder="945910122" />
+																<p className="p-2 text-red">{errors.cellphone && touched.cellphone && errors.cellphone}</p>
 															</div>
 														</div>
 														<div className="col-md-6">
@@ -185,8 +203,13 @@ const JoinUs = () => {
 																	onBlur={handleBlur}
 																	value={values.specialty} name="specialty" className="py-[8px] px-[16px] rounded-full w-full bg-[#ffffff]">
 																	<option value="">Seleccionar</option>
-																	<option value="">Selecciona</option>
-																	<option value="">Selecciona</option>
+																	{
+																		(servicesDigital.length) ? 
+																		servicesDigital.map( (elmt,index) => {
+																			return(<option value={elmt.title} key={index}>{elmt.title}</option>)
+																		})
+																		: ""
+																	}
 																</select>
 																<p className="p-2 text-red">{errors.specialty && touched.specialty && errors.specialty}</p>
 															</div>
@@ -214,7 +237,7 @@ const JoinUs = () => {
 																<p className="font-normal pb-[8px] pl-[16px]">Cop</p>
 																<input onChange={handleChange}
 																	onBlur={handleBlur}
-																	value={values.cop} name="cop" className="py-[8px] px-[16px] rounded-full w-full bg-[#ffffff] placeholder:text-gray placeholder:font-normal" type="email" placeholder="9895" />
+																	value={values.cop} name="cop" className="py-[8px] px-[16px] rounded-full w-full bg-[#ffffff] placeholder:text-gray placeholder:font-normal" type="number" placeholder="9895" />
 																<p className="p-2 text-red">{errors.cop && touched.cop && errors.cop}</p>
 															</div>
 														</div>
