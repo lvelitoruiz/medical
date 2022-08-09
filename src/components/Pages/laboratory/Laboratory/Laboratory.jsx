@@ -93,7 +93,7 @@ const Laboratory = ({elementIndex}) => {
                    { (servicesImages.length) ? centerContent : "" }
                 </ReactMarkdown>
               </div>
-              <div className="md:col-span-6 md:ml-5 p-[15px] object-center md:m-[auto]">
+              <div className="md:col-span-6 md:ml-5 p-[15px] object-center">
               { (servicesImages.length && centerImage !== "") ? <img src={`${IMGURL}${centerImage}`} alt="" className="lg:max-w-full" /> : "" }
               </div>
             </div>

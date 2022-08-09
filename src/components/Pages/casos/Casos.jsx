@@ -13,7 +13,22 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { IMGURL } from '../../../consts/constants';
 
+import { useDispatch } from 'react-redux';
+import { startLoadingCases } from '../../../actions/cases';
+import { startLoadingCats } from '../../../actions/cats';
+import { startLoadingBanners } from '../../../actions/banners';
+
 const Casos = () => {
+
+	const dispatch = useDispatch();
+
+	useEffect( () => {
+		
+		dispatch( startLoadingBanners( ) );
+		dispatch( startLoadingCases( ) );
+		dispatch( startLoadingCats( ) );
+
+	}, [dispatch]);
 
 	const [ info, setInfo ] = useState([]);
 	const [ categories, setCategories ] = useState([]);

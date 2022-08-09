@@ -5,9 +5,20 @@ import { Navbar } from "../includes/navbar/Navbar";
 import { Footer } from "../includes/footer/Footer";
 import { Laboratory } from "../components/Pages/laboratory/Laboratory/Laboratory";
 import { BannerMultiple } from "../components/BannerMultiple/BannerMultiple";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { startLoadingBanners } from "../actions/banners";
+
+
 const DigitalLab = ({location}) => {
+
+	const dispatch = useDispatch();
+
+	useEffect( () => {
+		
+		dispatch( startLoadingBanners( ) );
+
+	}, [dispatch]);
 
 	const [elementIndex,setElementIndex] = useState(null);
 

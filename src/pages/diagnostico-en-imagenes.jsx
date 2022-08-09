@@ -5,11 +5,20 @@ import { Navbar } from "../includes/navbar/Navbar";
 import { Footer } from "../includes/footer/Footer";
 import { Diagnostic } from "../components/Pages/diagnostic/Diagnostic/Diagnostic";
 import { BannerMultiple } from "../components/BannerMultiple/BannerMultiple";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { startLoadingBanners } from "../actions/banners";
 
 const DiagnosticImaging = ({location}) => {
+	
+	const dispatch = useDispatch();
 
+	useEffect( () => {
+		
+		dispatch( startLoadingBanners( ) );
+
+	}, [dispatch]);
+	
 	const [elementIndex,setElementIndex] = useState(null);
 
 	const { banners } = useSelector( state => state.banners);

@@ -28,19 +28,11 @@ const Diagnostic = ({elementIndex}) => {
 		setDiagnostics(info);
 	} , [diagnostics]);
 
-  useEffect( () => {
-    if(elementIndex !== null && servicesDigital.length) {
-      servicesDigital.forEach( (item, index) => {
-        if(index === elementIndex){
-          item.status = 'active';
-          setCenterImage(item.imagedate.data.attributes.url);
-          setCenterContent(item.Content);
-        } else {
-          item.status = '';
-        }
-      });
+  useEffect(() => {
+    if(servicesDigital.length && elementIndex !== null) {
+      handleChange(elementIndex);
     }
-  },[elementIndex])
+  },[servicesDigital,elementIndex])
 
   const handleChange = (key) => {
     let diagnostic = [];

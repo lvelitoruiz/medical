@@ -18,10 +18,18 @@ const CasosClinicos = () => {
 	const [atribs,setAtribs] = useState(null);
 	const [casesImage,setImage] = useState("");
 	const [casesTitle,setTitle] = useState("");
+
+
+	useEffect( () => {
+		
+		dispatch( startLoadingBanners( ) );
+
+	}, [dispatch]);
 	
 
 	useEffect(() => {
-		if(banners.length) {
+		console.log('the banners: ',banners);
+		if(banners !== undefined && banners.length) {
 			setAtribs(banners[0].attributes)
 		}
 	},[banners])
