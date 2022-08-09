@@ -183,7 +183,8 @@ const JoinUs = () => {
 																<p className="font-normal pb-[8px] pl-[16px]">Celular</p>
 																<input onChange={handleChange}
 																	onBlur={handleBlur}
-																	value={values.cellphone} name="cellphone" className="py-[8px] px-[16px] rounded-full w-full bg-[#ffffff] placeholder:text-gray placeholder:font-normal" type="number" placeholder="945910122" />
+																	value={values.cellphone} name="cellphone" 
+																	className="py-[8px] px-[16px] rounded-full w-full bg-[#ffffff] placeholder:text-gray placeholder:font-normal" type="number" placeholder="945910122" />
 																<p className="p-2 text-red">{errors.cellphone && touched.cellphone && errors.cellphone}</p>
 															</div>
 														</div>
