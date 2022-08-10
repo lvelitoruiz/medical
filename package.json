@@ -40,7 +40,8 @@
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
     "sass": "^1.52.2",
-    "swiper": "^8.2.5"
+    "swiper": "^8.2.5",
+    "whiz-sdk-node": "^1.4.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.7",
@@ -60,6 +61,6 @@
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1 "
   }
 }

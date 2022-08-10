@@ -101,7 +101,7 @@ const Services = () => {
 													spaceBetween: 0,
 												},
 												1024: {
-													slidesPerView: 2,
+													slidesPerView: 3,
 													spaceBetween: 0,
 												},
 											}}
@@ -120,7 +120,7 @@ const Services = () => {
 																	<img src={`${IMGURL}${elmt.imagedate.data.attributes.url}`} alt="" />
 																</div>
 																<p className="text-[18px] lg:text-[24px] font-bold mt-[16px] mb-[32px] leading-[32px]">{elmt.title}</p>
-																<Link to="" className="border border-solid border-red text-red text-[16px] font-semibold py-2 px-[35px] rounded-full">
+																<Link to="/diagnostico-en-imagenes" state={{ getElement: index }} className="border border-solid border-red text-red text-[16px] font-semibold py-2 px-[35px] rounded-full">
 																	<span>{elmt.button}</span>
 																</Link>
 															</div>
@@ -134,7 +134,7 @@ const Services = () => {
 																<img src={`${IMGURL}${elmt.imagedate.data.attributes.url}`} alt="" />
 															</div>
 															<p className="text-[18px] lg:text-[24px] font-bold mt-[16px] mb-[32px] leading-[32px]">{elmt.title}</p>
-															<Link to="" className="border border-solid border-red text-red text-[16px] font-semibold py-2 px-[35px] rounded-full">
+															<Link to="/laboratorio-dental-digital" state={{ getElement: index }} className="border border-solid border-red text-red text-[16px] font-semibold py-2 px-[35px] rounded-full">
 																<span>{elmt.button}</span>
 															</Link>
 														</div>

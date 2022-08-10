@@ -8,6 +8,7 @@ import { BannerMultiple } from "../components/BannerMultiple/BannerMultiple";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { startLoadingBanners } from "../actions/banners";
+import { startLoadingLaboratories } from "../actions/laboratories";
 
 
 const DigitalLab = ({location}) => {
@@ -17,16 +18,27 @@ const DigitalLab = ({location}) => {
 	useEffect( () => {
 		
 		dispatch( startLoadingBanners( ) );
+		dispatch( startLoadingLaboratories( ) );
 
 	}, [dispatch]);
 
 	const [elementIndex,setElementIndex] = useState(null);
-
+	
 	const { banners } = useSelector( state => state.banners);
+	const {laboratories} = useSelector( state => state.laboratories);
+	const [ servicesImages,setServices ] = useState([]);
 	const [atribs,setAtribs] = useState(null);
 	const [laboratoryImage,setImage] = useState("");
 	const [laboratoryTitle,setTitle] = useState("");
 	
+
+	useEffect(() => {
+		let info = [];
+		laboratories.map( diagnostic => {
+			info.push(diagnostic.attributes)
+		});
+		setServices(info);
+	} , [laboratories]);
 
 	useEffect(() => {
 		if(banners.length) {
@@ -51,7 +63,7 @@ const DigitalLab = ({location}) => {
 		<React.Fragment>
 			<Navbar diagnosticsMenu={true} />
 			<BannerMultiple bg={laboratoryImage} text={laboratoryTitle} />
-			<Laboratory  elementIndex={elementIndex} />
+			{ ( servicesImages.length && elementIndex !== null) ? <Laboratory  elementIndex={elementIndex} laboratoriesArray={servicesImages} /> : "" }
 			<Footer />
 		</React.Fragment>
 	);

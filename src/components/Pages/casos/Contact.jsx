@@ -21,7 +21,7 @@ const Contact = () => {
                         <p className="text-[#ffffff] font-normal mb-[24px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus imperdiet convallis efficitur. Aenean et justo vitae mi pharetra iaculis a ac ante.</p>
                         <Link className="flex items-center justify-center" href="">
                             <span className="text-[#ffffff] text-[16px] font-semibold">Contáctenos</span>
-                            <FontAwesomeIcon className="text-[#ffffff] ml-[7px]" icon={faArrowRight} />
+                            <FontAwesomeIcon className="text-[#ffffff] ml-[7px]" icon={faArrowRight} to="/contacto" />
                         </Link>
                     </div>
                 </div>

@@ -3,12 +3,21 @@ import React from 'react'
 import mision from "../../../../assets/img/mision@3x.png";
 import vision from "../../../../assets/img/vision@3x.png";
 
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
 import { IMGURL } from '../../../../consts/constants';
+import { startLoadingAbout } from '../../../../actions/about';
 
 export const AboutUs = () => {
+
+    const dispatch = useDispatch();
+
+	useEffect( () => {
+	
+		dispatch( startLoadingAbout( ) );
+
+	}, [dispatch]);
 
     const [ info, setInfo ] = useState([]);
 

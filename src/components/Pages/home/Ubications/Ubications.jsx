@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 
 //styles 
 import './ubications.scss';
@@ -12,8 +11,18 @@ import {
 	faAngleDown,
 } from '@fortawesome/free-solid-svg-icons'
 import { GKEY } from "../../../../consts/constants";
+import { useSelector, useDispatch } from "react-redux";
+import { startLoadingLocations } from "../../../../actions/locations";
 
 const Ubications = () => {
+
+	const dispatch = useDispatch();
+
+	useEffect( () => {
+	
+		dispatch( startLoadingLocations( ) );
+
+	}, [dispatch]);
 
 	const containerStyle = {
 		width: '100%',
@@ -21,7 +30,7 @@ const Ubications = () => {
 	  };
 
 	const [ ubication, setUbication ] = useState([]);
-	const [ center, setCenter ] = useState({});
+	const [ center, setCenter ] = useState({lat: 0, lng: 0});
 	const [mapInstance, setMapInstance] = useState(null);
 
 	const { locations } = useSelector( state => state.locations)
@@ -93,7 +102,7 @@ const Ubications = () => {
 
 								<div className="col-md-6 col-lg-6 h-[650px] rounded-3xl">
 									<LoadScript
-										googleMapsApiKey={GKEY}
+										googleMapsApiKey={process.env.GATSBY_GKEY}
 									>
 										<GoogleMap
 											mapContainerStyle={containerStyle}

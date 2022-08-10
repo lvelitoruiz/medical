@@ -57,16 +57,16 @@ const Footer = () => {
 								<div className="col-md-6 col-lg-3 mb-[40px] lg:mb-0">
 									<section className="flex flex-col items-start">	
 										<p className="text-[16px] text-gray mb-[18px]"><strong>Nosotros</strong></p>
-										<Link className="text-[16px] mb-[16px]" to="">
+										<Link className="text-[16px] mb-[16px]" to="/nosotros" state={{ getElement: 0 }}>
 											¿Quiénes somos?
 										</Link>
-										<Link className="text-[16px] mb-[16px]" to="">
+										<Link className="text-[16px] mb-[16px]" to="/nosotros" state={{ getElement: 1 }}>
 											Staff
 										</Link>
-										<Link className="text-[16px] mb-[24px]" to="">
+										<Link className="text-[16px] mb-[24px]" to="/nosotros" state={{ getElement: 2 }}>
 											Nuestras Sedes
 										</Link>
-										<button className="text-[#ffffff] rounded-full w-48 p-[6px] bg-red font-semibold text-[16px]">Afíliate</button>
+										<button className="text-[#ffffff] rounded-full w-48 p-[6px] bg-red font-semibold text-[16px]"><Link to="/" state={{ moveToElement: true }}>Afíliate</Link></button>
 									</section>
 								</div>
 
@@ -78,7 +78,7 @@ const Footer = () => {
 										{
 											(servicesDigital.length) ? 
 											servicesDigital.map( (elmt,index) => {
-												return(<Link className="text-[16px] mb-[16px]" to="/diagnostico-en-imagenes" key={index}>
+												return(<Link className="text-[16px] mb-[16px]" to="/diagnostico-en-imagenes" key={index} state={{ getElement: index }}>
 													{elmt.title}
 												</Link>)
 											})
@@ -94,7 +94,7 @@ const Footer = () => {
 										{
 											(servicesImages.length) ? 
 											servicesImages.map( (elmt,index) => {
-												return(<Link className="text-[16px] mb-[16px]" to="/laboratorio-dental-digital" key={index}>
+												return(<Link className="text-[16px] mb-[16px]" to="/laboratorio-dental-digital" key={index} state={{ getElement: index }}>
 													{elmt.title}
 												</Link>)
 											})
@@ -108,7 +108,7 @@ const Footer = () => {
 								<div className="col-md-6 col-lg-3 mb-[40px] lg:mb-0">
 									<section className="flex flex-col">
 										<p className="text-[16px] text-gray mb-[18px]"><strong>Casos clínicos</strong></p>
-										<Link className="text-[16px] mb-[22px]" to="">
+										<Link className="text-[16px] mb-[22px]" to="/casos-clinicos">
 											Nuestros casos
 										</Link>
 									</section>

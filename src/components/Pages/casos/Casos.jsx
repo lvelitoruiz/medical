@@ -103,7 +103,7 @@ const Casos = () => {
         <section className="container">
 			<div className="row mt-[40px] mb-[10px] items-center">
 				<div className="col-12 col-md-6 mb-[15px] md:mb-0">
-					<p className="text-[#B0BEC5] text-[16px]">15 Casos clínicos</p>
+					<p className="text-[#B0BEC5] text-[16px]">{info.length} Casos clínicos</p>
 				</div>
 				<div className="col-12 col-md-6">
 					<div className="row items-center md:justify-end">

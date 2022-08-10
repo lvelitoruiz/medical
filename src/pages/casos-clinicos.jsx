@@ -28,7 +28,6 @@ const CasosClinicos = () => {
 	
 
 	useEffect(() => {
-		console.log('the banners: ',banners);
 		if(banners !== undefined && banners.length) {
 			setAtribs(banners[0].attributes)
 		}

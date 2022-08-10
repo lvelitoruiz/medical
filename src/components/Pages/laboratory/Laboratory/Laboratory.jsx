@@ -2,45 +2,37 @@ import React from "react"
 
 // //components
 import { Link } from "gatsby"
-import sercons from "../../../../assets/img/SerCom.png"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCircle, faArrowRight } from "@fortawesome/free-solid-svg-icons"
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 import './Laboratory.scss';
 
-import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import { IMGURL } from "../../../../consts/constants"
 
-const Laboratory = ({elementIndex}) => {
+const Laboratory = ({elementIndex,laboratoriesArray}) => {
 
   const [ servicesImages,setServices ] = useState([]);
   const [ centerImage,setCenterImage ] = useState("");
   const [ centerContent,setCenterContent ] = useState("");
-  const {laboratories} = useSelector( state => state.laboratories);
 
   useEffect(() => {
-		let info = [];
-		laboratories.map( diagnostic => {
-			info.push(diagnostic.attributes)
-		});
-		setServices(info);
-	} , [laboratories]);
-
-  useEffect( () => {
-    if(elementIndex !== null && servicesImages.length) {
-      servicesImages.forEach( (item, index) => {
+		let laboratory = [];
+      laboratoriesArray.map( element => {
+        laboratory.push(element)
+      });
+      laboratory.forEach( (item, index) => {
         if(index === elementIndex){
           item.status = 'active';
-          setCenterImage(item.image);
+          setCenterImage(item.imagedate.data.attributes.url);
           setCenterContent(item.Content);
         } else {
           item.status = '';
         }
       });
-    }
-  },[elementIndex])
+		setServices(laboratory);
+	} , [laboratoriesArray]);
 
   const handleChange = (key) => {
     let service = [];

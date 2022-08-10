@@ -7,45 +7,35 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowRight, faCircle } from "@fortawesome/free-solid-svg-icons"
 import './Diagnostic.scss';
 
-import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import { IMGURL } from "../../../../consts/constants"
-import { useDispatch } from 'react-redux';
-import { startLoadingBanners } from '../../../../actions/banners';
-import { startLoadingDiagnostics } from "../../../../actions/diagnostics"
 
-const Diagnostic = ({elementIndex}) => {
+const Diagnostic = ({elementIndex,diagnosticArray}) => {
 
-  const dispatch = useDispatch();
-
-	useEffect( () => {
-		
-		dispatch( startLoadingBanners( ) );
-		dispatch( startLoadingDiagnostics( ) );
-
-	}, [dispatch]);
 
   const [ servicesDigital,setDiagnostics ] = useState([]);
   const [ centerImage,setCenterImage ] = useState("");
   const [ centerContent,setCenterContent ] = useState("");
-  const {diagnostics} = useSelector( state => state.diagnostics);
+  
 
   useEffect(() => {
-    console.log('this element is: ',diagnostics);
-		let info = [];
-		diagnostics.map( diagnostic => {
-			info.push(diagnostic.attributes)
-		});
-		setDiagnostics(info);
-	} , [diagnostics]);
-
-  useEffect(() => {
-    if(servicesDigital.length && elementIndex !== null) {
-      handleChange(elementIndex);
-    }
-  },[servicesDigital,elementIndex])
+    let diagnostic = [];
+      diagnosticArray.map( element => {
+        diagnostic.push(element)
+      });
+      diagnostic.forEach( (item, index) => {
+        if(index === elementIndex){
+          item.status = 'active';
+          setCenterImage(item.imagedate.data.attributes.url);
+          setCenterContent(item.Content);
+        } else {
+          item.status = '';
+        }
+      });
+		setDiagnostics(diagnostic);
+	} , [diagnosticArray]);
 
   const handleChange = (key) => {
     let diagnostic = [];
