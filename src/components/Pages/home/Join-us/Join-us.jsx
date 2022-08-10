@@ -8,9 +8,14 @@ import './join-us.scss';
 import icon1 from "../../../../assets/img/redodontologos@3x.png";
 
 import { useSelector } from "react-redux";
-import { useState } from "react";
-import { useEffect } from "react";
-import { element } from "prop-types";
+import { useState, useEffect } from "react";
+import WhizSDK from 'whiz-sdk-node';
+
+const whizSDK = WhizSDK({
+    apiUrl:  "https://api.whiz.pe",
+    clientId:  parseInt(process.env.GATSBY_CLIENT_ID),
+    clientSecret: process.env.GATSBY_CLIENT_SECRET
+});
 
 
 
@@ -27,6 +32,17 @@ const JoinUs = () => {
 		setDiagnostics(info);
 	} , [diagnostics]);
 
+	const sendMail = () => {
+		console.log('sending the mail');
+		whizSDK.mail.send({
+			cc: [{email: "cc@example.com", name: "name"}],
+			sender: {email: 'sender@example.com', name: 'Sender'}, 
+			addressee: {email: 'pogolvelito@gmail.com', name: 'Receiver'}, 
+			template: '<h1>Hi!</h1>',
+			subject: 'Greetings'
+		});
+	}
+
 	return (
 		<React.Fragment>
 			<section className="py-[40px] relative lg:py-[90px] bg-[url('../assets/img/BGUnetered@3x.png')] bg-cover bg-left-top">
@@ -41,7 +57,7 @@ const JoinUs = () => {
 										<div className="w-14 lg:w-24 h-14 lg:h-24 min-w-[3.5rem] lg:min-w-[6rem] bg-[#ffffff] rounded-[14px] lg:rounded-[24px] mr-[30px] flex items-center justify-center">
 											<img className="w-10 lg:w-20 h-10 lg:h-20 bg-cover object-cover" src={icon1} alt="" />
 										</div>
-										<h2 className="font-semibold text-[30px] lg:text-[40px] leading-[38px] lg:leading-[48px]">
+										<h2 className="font-semibold text-[30px] lg:text-[40px] leading-[38px] lg:leading-[48px]" onClick={() => sendMail()}>
 											Únete a nuestra red de odontólogos
 										</h2>
 									</div>
@@ -245,7 +261,7 @@ const JoinUs = () => {
 													</div>
 													<div className="row mt-[40px]">
 														<div className="col-md-4">
-															<button className="text-[#ffffff] rounded-full w-full p-[6px] bg-red font-semibold text-[16px]" type="submit">
+															<button className="text-[#ffffff] rounded-full w-full p-[6px] bg-red font-semibold text-[16px]" disabled={isSubmitting} type="submit">
 																Afiliarme
 															</button>
 														</div>

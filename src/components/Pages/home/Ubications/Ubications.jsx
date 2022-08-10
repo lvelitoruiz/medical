@@ -102,7 +102,7 @@ const Ubications = () => {
 
 								<div className="col-md-6 col-lg-6 h-[650px] rounded-3xl">
 									<LoadScript
-										googleMapsApiKey={GKEY}
+										googleMapsApiKey={process.env.GATSBY_GKEY}
 									>
 										<GoogleMap
 											mapContainerStyle={containerStyle}
