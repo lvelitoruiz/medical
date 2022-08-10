@@ -57,7 +57,7 @@ const JoinUs = () => {
 										<div className="w-14 lg:w-24 h-14 lg:h-24 min-w-[3.5rem] lg:min-w-[6rem] bg-[#ffffff] rounded-[14px] lg:rounded-[24px] mr-[30px] flex items-center justify-center">
 											<img className="w-10 lg:w-20 h-10 lg:h-20 bg-cover object-cover" src={icon1} alt="" />
 										</div>
-										<h2 className="font-semibold text-[30px] lg:text-[40px] leading-[38px] lg:leading-[48px]" onClick={() => sendMail()}>
+										<h2 className="font-semibold text-[30px] lg:text-[40px] leading-[38px] lg:leading-[48px]">
 											Únete a nuestra red de odontólogos
 										</h2>
 									</div>
