@@ -3,7 +3,6 @@ import React from 'react'
 import { Link } from "gatsby";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import item1 from "../../../assets/img/casos-clinicos1.png";
 import {
 	faArrowRight
   } from '@fortawesome/free-solid-svg-icons'
@@ -40,9 +39,9 @@ const Casos = () => {
 
 	useEffect(() => {
 		let info = [];
-		cases.map( caso => {
+		cases.map( caso => (
 			info.push(caso.attributes)
-		});
+		));
 		if(cases.length > size) {
 			setMoreItems(true);
 		}
@@ -51,9 +50,9 @@ const Casos = () => {
 
 	useEffect(() => {
 		let info = [];
-		cats.map( caso => {
+		cats.map( caso => (
 			info.push(caso.attributes)
-		});
+		));
 		setCategories(info);
 	} , [cats]);
 
@@ -70,11 +69,11 @@ const Casos = () => {
 	const filterCats = (event) => {
 		let cat = event.target.value;
 		setSize(2);
-		if(cat == "todos"){
+		if(cat === "todos"){
 			let info = [];
-			cases.map( caso => {
+			cases.map( caso => (
 				info.push(caso.attributes)
-			});
+			));
 			setInfo(info);
 			if(info.length > size) {
 				setMoreItems(true);
@@ -84,7 +83,7 @@ const Casos = () => {
 		} else {
 			let info = [];
 			cases.map( caso => {
-				if( cat == caso.attributes.cases.data[0].attributes.name){
+				if( cat === caso.attributes.cases.data[0].attributes.name){
 					info.push(caso.attributes)
 				}
 			});

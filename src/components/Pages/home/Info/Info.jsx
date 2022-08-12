@@ -17,9 +17,9 @@ const Info = () => {
 
 	useEffect(() => {
 		let info = [];
-		advantages.map( advantage => {
+		advantages.map( advantage => (
 			info.push(advantage.attributes)
-		});
+		));
 		setInfo(info);
 	} , [advantages]);
 

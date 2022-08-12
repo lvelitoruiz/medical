@@ -4,10 +4,9 @@ import './services.scss';
 //components
 import { Link } from "gatsby";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import laboratory from "../../../../assets/img/laboratoryservice@3x.png"
 import { useSelector } from "react-redux";
 import { useState } from "react";
-import { Navigation, Pagination } from 'swiper';
+import { Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
@@ -32,17 +31,17 @@ const Services = () => {
 
 	useEffect(() => {
 		let info = [];
-		laboratories.map( laboratory => {
+		laboratories.map( laboratory => (
 			info.push(laboratory.attributes)
-		});
+		));
 		setServices(info);
 	} , [laboratories]);
 
 	useEffect(() => {
 		let info = [];
-		diagnostics.map( diagnostic => {
+		diagnostics.map( diagnostic => (
 			info.push(diagnostic.attributes)
-		});
+		));
 		setDiagnostics(info);
 	} , [diagnostics]);
 

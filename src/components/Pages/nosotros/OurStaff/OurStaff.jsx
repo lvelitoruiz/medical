@@ -2,9 +2,6 @@ import React from "react";
 
 //components
 import { Link } from "gatsby";
-import { modal } from "../../../../pages/modal";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import doc from "../../../../assets/img/Gisella@3x.png";
 
 import { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -13,10 +10,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
 
-import {
-  faAngleLeft,
-	faAngleRight,
-} from '@fortawesome/free-solid-svg-icons'
 import { IMGURL } from "../../../../consts/constants";
 import { startLoadingStaff } from "../../../../actions/staff";
 
@@ -36,9 +29,9 @@ const OurStaff = () => {
 
 	useEffect(() => {
 		let info = [];
-		staff.map( item => {
+		staff.map( item => (
 			info.push(item.attributes)
-		});
+		));
 		setInfo(info);
 	} , [staff]);
 	

@@ -1,10 +1,8 @@
 import React from "react"
 
 // //components
-import { Link } from "gatsby"
-import maxilofacial from "../../../../assets/img/maxilofacial.png"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faArrowRight, faCircle } from "@fortawesome/free-solid-svg-icons"
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 import './Diagnostic.scss';
 
 import { useState } from "react";
@@ -22,9 +20,9 @@ const Diagnostic = ({elementIndex,diagnosticArray}) => {
 
   useEffect(() => {
     let diagnostic = [];
-      diagnosticArray.map( element => {
+      diagnosticArray.map( element => (
         diagnostic.push(element)
-      });
+      ));
       diagnostic.forEach( (item, index) => {
         if(index === elementIndex){
           item.status = 'active';
@@ -39,9 +37,9 @@ const Diagnostic = ({elementIndex,diagnosticArray}) => {
 
   const handleChange = (key) => {
     let diagnostic = [];
-		servicesDigital.map( element => {
+		servicesDigital.map( element => (
 			diagnostic.push(element)
-		});
+    ));
 		diagnostic.forEach( (item, index) => {
 			if(index === key){
 				item.status = 'active';
@@ -68,10 +66,10 @@ const Diagnostic = ({elementIndex,diagnosticArray}) => {
 													(servicesDigital.length) ? 
 													servicesDigital.map( (elmt,index) => {
 														return(
-                            <li onClick={() => handleChange(index)} className={`${elmt.status == 'active' ? 'text-red bg-white ' : '' } hover:text-red cursor-pointer rounded-[40px] xl:p-5 lg:px-8 lg:py-4 px-4 py-4 xl:mb-4 mb-5 mr-3 border border-solid border-2 whitespace-nowrap flex items-center`} key={index}>
+                            <li onClick={() => handleChange(index)} className={`${elmt.status === 'active' ? 'text-red bg-white ' : '' } hover:text-red cursor-pointer rounded-[40px] xl:p-5 lg:px-8 lg:py-4 px-4 py-4 xl:mb-4 mb-5 mr-3 border border-solid whitespace-nowrap flex items-center`} key={index}>
                               <p>{elmt.title}</p>
                               {
-                                (elmt.status == 'active') ? <FontAwesomeIcon
+                                (elmt.status === 'active') ? <FontAwesomeIcon
                                       className="text-red text-[18px] ml-3 w-[18px]"
                                       icon={faArrowRight}
                                     /> : ""
@@ -89,58 +87,7 @@ const Diagnostic = ({elementIndex,diagnosticArray}) => {
                 <ReactMarkdown>
                    { (servicesDigital.length) ? centerContent : "" }
                 </ReactMarkdown>
-                {/* <div className="mb-[40px]">
-                  <h3 className="text-2xl font-bold mb-7">
-                    Estudios Radiográficos
-                  </h3>
-                  <ul className="text-black md:text-base text-sm font-normal">
-                    <li className="mb-3 ml-3 flex">
-                      <FontAwesomeIcon
-                        className="text-red text-xs mr-4 mt-1 w-[8px]"
-                        icon={faCircle}
-                      />
-                      <p>
-                        <b>Intraorales:</b> Periapical, Oclusal, Bitewing,
-                        Periapical Seriada y Estudio de Localización.
-                      </p>
-                    </li>
-                    <li className="mb-3 ml-3 flex">
-                      <FontAwesomeIcon
-                        className="text-red text-xs mr-4 mt-1 w-[8px]"
-                        icon={faCircle}
-                      />
-                      <p>
-                        <b>Extraorales:</b> Panorámica, Cefalométrica, Carpal, ATM
-                        y Postero Anterior.
-                      </p>
-                    </li>
-                  </ul>
-                </div>
-                <div className="mb-[40px]">
-                  <h3 className="text-2xl font-bold mb-7">
-                    Tomografía Cone Beam 3D
-                  </h3>
-                  <ul className="text-black md:text-base text-sm font-normal">
-                    <li className="mb-3 ml-3 flex">
-                      <FontAwesomeIcon
-                        className="text-red text-xs mr-4 mt-1 w-[8px]"
-                        icon={faCircle}
-                      />
-                      <p>
-                        Tomografía C/I - S/I
-                      </p>
-                    </li>
-                    <li className="mb-3 ml-3 flex">
-                      <FontAwesomeIcon
-                        className="text-red text-xs mr-4 mt-1 w-[8px]"
-                        icon={faCircle}
-                      />
-                      <p>
-                        Tomografía 3D para Endodoncia. FOV pequeño
-                      </p>
-                    </li>
-                  </ul>
-                </div> */}
+                
               </div>
               <div className="md:col-span-6 object-center">
               { (servicesDigital.length && centerImage !== "") ? <img src={`${IMGURL}${centerImage}`} alt="" className="lg:max-w-full" /> : "" }

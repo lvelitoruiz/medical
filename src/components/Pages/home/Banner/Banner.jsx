@@ -8,7 +8,6 @@ import './banner.scss';
 //components
 
 const Banner = ({bg,text}) => {
-	const background = "url('../../../assets/img/"+bg+"')";
 	const [bgImage,setBgImage] = useState("");
 	useEffect( () => {
 		if(bg) {
@@ -20,7 +19,7 @@ const Banner = ({bg,text}) => {
 		<React.Fragment>
 			<section className={"pt-[88px] bg-smoke pb-[44px] w-full h-[685px] lg:h-[785px] relative"}>
 				{
-					(bgImage !== "") ? <img src={`${IMGURL}${bgImage}`} className="absolute right-0 top-0 object-cover w-full h-full" /> : ""
+					(bgImage !== "") ? <img src={`${IMGURL}${bgImage}`} className="absolute right-0 top-0 object-cover w-full h-full" alt="" /> : ""
 				}
 				<div className="container">
 					<div className="row justify-center">

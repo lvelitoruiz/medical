@@ -34,9 +34,9 @@ const DigitalLab = ({location}) => {
 
 	useEffect(() => {
 		let info = [];
-		laboratories.map( diagnostic => {
+		laboratories.map( diagnostic => (
 			info.push(diagnostic.attributes)
-		});
+		));
 		setServices(info);
 	} , [laboratories]);
 

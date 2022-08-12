@@ -1,13 +1,6 @@
 import React from "react"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import icon1 from "../assets/img/redodontologos@3x.png";
-
-import {
-	faBriefcase,
-  faGraduationCap,
-  faXmark,
-} from '@fortawesome/free-solid-svg-icons'
 
 const Register = () => {
   return (

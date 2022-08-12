@@ -34,9 +34,9 @@ const DiagnosticImaging = ({location}) => {
 
 	useEffect(() => {
 			let info = [];
-			diagnostics.map( diagnostic => {
+			diagnostics.map( diagnostic => (
 				info.push(diagnostic.attributes)
-			});
+			));
 			setDiagnostics(info);
 	} , [diagnostics]);
 	

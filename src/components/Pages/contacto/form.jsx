@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from "gatsby";
@@ -29,7 +29,7 @@ const Form = () => {
 										<p className="text-gray mb-[10px]">Sede central</p>
 										<div className="flex items-center text-red">
 											<FontAwesomeIcon className="mr-[10px]" icon={faPhone} />
-											<a href="">(01) 680 2500</a>
+											<span>(01) 680 2500</span>
 										</div>
 									</div>
 									<div className="mb-[24px]">
@@ -160,7 +160,7 @@ const Form = () => {
 															<div className="mb-[20px]">
 																<p className="font-normal pb-[8px] pl-[16px]">Adjuntar archivos</p>
 																<div>
-																	<input className="hidden" id="file-upload" type="file" name="fileUpload" />
+																	<input className="hidden" id="file-upload" type="file" name="file-upload" />
 																	<label className="cursor-pointer flex items-center justify-center rounded-xl border border-gray border-dashed p-[20px] text-center" for="file-upload" id="file-drag">
 																		<FontAwesomeIcon className="text-gray mr-[10px]" icon={faFile} />
 																		<p className="text-left text-gray font-normal">Arrasta el archivo aquí o click para adjuntar</p>

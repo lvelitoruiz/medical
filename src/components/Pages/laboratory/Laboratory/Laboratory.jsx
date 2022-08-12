@@ -1,7 +1,6 @@
 import React from "react"
 
 // //components
-import { Link } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 import './Laboratory.scss';
@@ -19,9 +18,9 @@ const Laboratory = ({elementIndex,laboratoriesArray}) => {
 
   useEffect(() => {
 		let laboratory = [];
-      laboratoriesArray.map( element => {
+      laboratoriesArray.map( element => (
         laboratory.push(element)
-      });
+      ));
       laboratory.forEach( (item, index) => {
         if(index === elementIndex){
           item.status = 'active';
@@ -36,9 +35,9 @@ const Laboratory = ({elementIndex,laboratoriesArray}) => {
 
   const handleChange = (key) => {
     let service = [];
-		servicesImages.map( element => {
+		servicesImages.map( element => (
 			service.push(element)
-		});
+    ));
 		service.forEach( (item, index) => {
 			if(index === key){
 				item.status = 'active';
@@ -63,10 +62,10 @@ const Laboratory = ({elementIndex,laboratoriesArray}) => {
 													(servicesImages.length) ? 
 													servicesImages.map( (elmt,index) => {
 														return(
-                            <li onClick={() => handleChange(index)} className={`${elmt.status == 'active' ? 'text-red bg-white ' : '' } hover:text-red cursor-pointer rounded-[40px] xl:p-5 lg:px-8 lg:py-4 px-4 py-4 xl:mb-4 mb-5 mr-3 border border-solid border-2 whitespace-nowrap flex items-center`} key={index}>
+                            <li onClick={() => handleChange(index)} className={`${elmt.status === 'active' ? 'text-red bg-white ' : '' } hover:text-red cursor-pointer rounded-[40px] xl:p-5 lg:px-8 lg:py-4 px-4 py-4 xl:mb-4 mb-5 mr-3 border border-solid border-2 whitespace-nowrap flex items-center`} key={index}>
                               <p>{elmt.title}</p>
                               {
-                                (elmt.status == 'active') ? <FontAwesomeIcon
+                                (elmt.status === 'active') ? <FontAwesomeIcon
                                       className="text-red text-[18px] ml-3 w-[18px]"
                                       icon={faArrowRight}
                                     /> : ""

@@ -9,13 +9,6 @@ import icon1 from "../../../../assets/img/redodontologos@3x.png";
 
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import WhizSDK from 'whiz-sdk-node';
-
-const whizSDK = WhizSDK({
-    apiUrl:  "https://api.whiz.pe",
-    clientId:  parseInt(process.env.GATSBY_CLIENT_ID),
-    clientSecret: process.env.GATSBY_CLIENT_SECRET
-});
 
 
 
@@ -26,22 +19,11 @@ const JoinUs = () => {
 
 	useEffect(() => {
 		let info = [];
-		diagnostics.map( diagnostic => {
+		diagnostics.map( diagnostic => (
 			info.push(diagnostic.attributes)
-		});
+		));
 		setDiagnostics(info);
 	} , [diagnostics]);
-
-	const sendMail = () => {
-		console.log('sending the mail');
-		whizSDK.mail.send({
-			cc: [{email: "cc@example.com", name: "name"}],
-			sender: {email: 'sender@example.com', name: 'Sender'}, 
-			addressee: {email: 'pogolvelito@gmail.com', name: 'Receiver'}, 
-			template: '<h1>Hi!</h1>',
-			subject: 'Greetings'
-		});
-	}
 
 	return (
 		<React.Fragment>

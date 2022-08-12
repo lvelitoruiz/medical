@@ -8,7 +8,7 @@ const Error404 = () => {
 	return(
 		<React.Fragment>
 			<Navbar />
-				Error 404
+				
 			<Footer />
 		</React.Fragment>
 	);
