@@ -36,7 +36,7 @@ const Caso = ({location,params}) => {
 	useEffect(() => {
 		if(cases.length && elementIndex !== null) {
 			cases.map( (element,index) => {
-				if(element.attributes.slug == elementIndex) {
+				if(element.attributes.slug === elementIndex) {
 					setClinicCase(element.attributes);
 					setImages(element.attributes.images.data);
 				}
@@ -66,16 +66,16 @@ const Caso = ({location,params}) => {
 								<div className="flex items-center justify-center">
 									<p className="text-[#B0BEC5]">Compartir:</p>
 									<div className="flex items-center ml-[10px]">
-										<a href="">
+										<a href="/#">
 											<FontAwesomeIcon className="text-[#B0BEC5] mr-[16px]" icon={faFacebookF} />
 										</a>
-										<a href="">
+										<a href="/#">
 											<FontAwesomeIcon className="text-[#B0BEC5] mr-[16px]" icon={faLinkedinIn} />
 										</a>
-										<a href="">
+										<a href="/#">
 											<FontAwesomeIcon className="text-[#B0BEC5] mr-[16px]" icon={faTwitter} />
 										</a>
-										<a href="">
+										<a href="/#">
 											<FontAwesomeIcon className="text-[#B0BEC5] mr-[16px]" icon={faEnvelope} />
 										</a>
 									</div>

@@ -24,9 +24,9 @@ const OurValues = () => {
 
 	useEffect(() => {
 		let info = [];
-		values.map( value => {
+		values.map( value => (
 			info.push(value.attributes)
-		});
+		));
 		setInfo(info);
 	} , [values]);
 

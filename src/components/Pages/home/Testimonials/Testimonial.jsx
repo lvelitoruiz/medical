@@ -1,16 +1,14 @@
 import React from "react";
 //styles
 import './testimonial.scss'
-//components
-import icon1 from "../../../../assets/img/start.png";
-import testimonio from "../../../../assets/img/testimonio.png";
 
-import { Navigation, Pagination } from 'swiper';
+import { Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
+import iconstar from "../../../../assets/img/start.png";
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -25,9 +23,9 @@ const Testimonial = () => {
 
 	useEffect(() => {
 		let info = [];
-		testimonials.map( testimonial => {
+		testimonials.map( testimonial => (
 			info.push(testimonial.attributes)
-		});
+		));
 		setClients(info);
 	} , [testimonials]);
 
@@ -82,7 +80,7 @@ const Testimonial = () => {
 															</div>
 															<div className="md:w-[50%] items-start bg-[#ffffff] rounded-[24px] flex flex-col justify-between md:px-[60px] my-[20px] lg:my-0">
 																<div>
-																	<img className="mb-3 h-12 w-12 bg-cover object-cover" src={require(`../../../../assets/img/${client.icon}`).default} alt="" />
+																	<img className="mb-3 h-12 w-12 bg-cover object-cover" src={iconstar} alt="" />
 																	<h3 className="text-red text-[20px] font-semibold mb-[8px]">{client.title}</h3>
 																	<span className="bg-smoke text-[12px] py-[6px] px-[10px] font-semibold rounded-[40px]">{client.subtitle}</span>
 																	<p className="leading-[24px] mt-[15px]">{client.description}</p>

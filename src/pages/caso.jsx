@@ -6,8 +6,6 @@ import { Footer } from "../includes/footer/Footer";
 import { Link } from "gatsby";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import item1 from "../assets/img/casos-clinicos1.png";
-
 import {
   faArrowLeft,
 	faEnvelope

@@ -5,12 +5,11 @@ import './ubications.scss';
 //components
 import UbiCard from "./UbiCard";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { GoogleMap, LoadScript, Marker, useGoogleMap } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 import {
 	faAngleDown,
 } from '@fortawesome/free-solid-svg-icons'
-import { GKEY } from "../../../../consts/constants";
 import { useSelector, useDispatch } from "react-redux";
 import { startLoadingLocations } from "../../../../actions/locations";
 
@@ -41,11 +40,11 @@ const Ubications = () => {
 
 	useEffect(() => {
 		let ubication = [];
-		locations.map( location => {
+		locations.map( location => (
 			ubication.push(location.attributes)
-		});
+		));
 		ubication.map( ubic => {
-			const coord = { lat: parseFloat(ubic.lat), lng: parseFloat(ubic.long)}
+			const coord = { lat: parseFloat(ubic.lat), lng: parseFloat(ubic.long)};
 			ubic.coords = coord;
 		});
 		setUbication(ubication);
@@ -57,9 +56,9 @@ const Ubications = () => {
 
 	const handleAccordion = (key) => {
 		let ubications = [];
-		locations.map( location => {
+		locations.map( location => (
 			ubications.push(location.attributes)
-		});
+		));
 		ubications.forEach( (item, index) => {
 			if(index === key){
 				item.status = 'active';

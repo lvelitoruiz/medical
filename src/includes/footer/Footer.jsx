@@ -5,8 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 //utils
 import { Link } from "gatsby";
-//styles 
-import './footer.scss'
 
 import {
   faPhone
@@ -31,17 +29,17 @@ const Footer = () => {
 
 	useEffect(() => {
 		let info = [];
-		diagnostics.map( diagnostic => {
+		diagnostics.map( diagnostic => (
 			info.push(diagnostic.attributes)
-		});
+		));
 		setDiagnostics(info);
 	} , [diagnostics]);
 
 	useEffect(() => {
 		let info = [];
-		laboratories.map( laboratory => {
+		laboratories.map( laboratory => (
 			info.push(laboratory.attributes)
-		});
+		));
 		setServices(info);
 	} , [laboratories]);
 

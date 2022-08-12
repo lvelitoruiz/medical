@@ -1,8 +1,5 @@
 import React from 'react'
 
-import mision from "../../../../assets/img/mision@3x.png";
-import vision from "../../../../assets/img/vision@3x.png";
-
 import { useSelector,useDispatch } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -25,9 +22,9 @@ export const AboutUs = () => {
 
 	useEffect(() => {
 		let info = [];
-		about.map( item => {
+		about.map( item => (
 			info.push(item.attributes)
-		});
+        ));
 		setInfo(info);
 	} , [about]);
 

@@ -1,9 +1,5 @@
 import React from "react";
 
-//styles 
-//components
-import banner from "../../../../assets/img/banner-nosotros.jpg";
-
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -16,9 +12,9 @@ const BannerUs = () => {
 
 	useEffect(() => {
 		let info = [];
-		about.map( item => {
+		about.map( item => (
 			info.push(item.attributes)
-		});
+		));
 		setInfo(info);
 	} , [about]);
 
