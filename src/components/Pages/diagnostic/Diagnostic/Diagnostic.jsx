@@ -33,7 +33,7 @@ const Diagnostic = ({elementIndex,diagnosticArray}) => {
         }
       });
 		setDiagnostics(diagnostic);
-	} , [diagnosticArray]);
+	} , [elementIndex]);
 
   const handleChange = (key) => {
     let diagnostic = [];

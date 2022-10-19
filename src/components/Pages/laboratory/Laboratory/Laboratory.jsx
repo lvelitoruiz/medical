@@ -31,7 +31,7 @@ const Laboratory = ({elementIndex,laboratoriesArray}) => {
         }
       });
 		setServices(laboratory);
-	} , [laboratoriesArray]);
+	} , [elementIndex]);
 
   const handleChange = (key) => {
     let service = [];

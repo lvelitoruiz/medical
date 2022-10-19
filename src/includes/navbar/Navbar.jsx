@@ -84,7 +84,7 @@ const Navbar = ( { diagnosticsMenu = false, laboratoriesMenu = false} ) => {
 												<FontAwesomeIcon className="ml-[10px] text-red" icon={faAngleDown} />
 											</Link>
 											{/* add class active */}
-											{ (diagnosticsMenu) ? <ul className="g-nav--sub lg:shadow-xl">
+											<ul className="g-nav--sub lg:shadow-xl">
 												<li className="text-red mb-[10px]">
 													Por especialidad
 												</li>
@@ -101,7 +101,7 @@ const Navbar = ( { diagnosticsMenu = false, laboratoriesMenu = false} ) => {
 													})
 													: ""
 												}
-											</ul> : "" }
+											</ul>
 										</li>
 										<li className="font-semibold px-[15px] lg:px-[10px] py-[10px] lg:py-0 relative sub-container">
 											<Link to="" className="flex justify-between items-center">
@@ -109,7 +109,7 @@ const Navbar = ( { diagnosticsMenu = false, laboratoriesMenu = false} ) => {
 												<FontAwesomeIcon className="ml-[10px] text-red" icon={faAngleDown} />
 											</Link>
 											{/* add class active */}
-											{ (laboratoriesMenu) ? <ul className="g-nav--sub lg:shadow-xl">
+											<ul className="g-nav--sub lg:shadow-xl">
 												{
 													(servicesImages.length) ? 
 													servicesImages.map( (elmt,index) => {
@@ -121,7 +121,7 @@ const Navbar = ( { diagnosticsMenu = false, laboratoriesMenu = false} ) => {
 													})
 													: ""
 												}
-											</ul> : ""}
+											</ul>
 										</li>
 										<li className="font-semibold px-[15px] lg:px-[10px] py-[10px] lg:py-0">
 											<Link to="/casos-clinicos">Casos Clínicos</Link>
@@ -130,10 +130,10 @@ const Navbar = ( { diagnosticsMenu = false, laboratoriesMenu = false} ) => {
 											<Link to="/contacto">Contacto</Link>
 										</li>
 										<li className="font-semibold px-[15px] lg:pr-0 lg:pl-[10px] py-[10px] lg:py-0 whitespace-nowrap">
-											<Link className="text-[#ffffff] inline-block rounded-full py-[6px] px-[24px] bg-red font-semibold text-[16px]" to="/ingresar">
+											<a href="http://www.medicaldentdigital.pe/panel/" target="_blank" className="text-[#ffffff] inline-block rounded-full py-[6px] px-[24px] bg-red font-semibold text-[16px]">
 												<span>Intranet</span>
 												<FontAwesomeIcon className="ml-[10px]" icon={faAngleRight} />
-											</Link>
+											</a>
 										</li>
 									</ul>
 								</nav>

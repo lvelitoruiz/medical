@@ -119,15 +119,15 @@ const Footer = () => {
 											</p>
 										</div>
 										<div className="flex items-center mt-[24px]">
-											<Link className="bg-[#ffffff] rounded-full w-10 h-10 mr-[24px] flex items-center justify-center" to="">
+											<a href="https://www.facebook.com/medicaldentdigital/" target="_blank" className="bg-[#ffffff] rounded-full w-10 h-10 mr-[24px] flex items-center justify-center">
 												<FontAwesomeIcon className="text-red" icon={faFacebookF} />
-											</Link>
-											<Link className="bg-[#ffffff] rounded-full w-10 h-10 mr-[24px] flex items-center justify-center" to="">
+											</a>
+											<a href="https://www.instagram.com/medicaldentdigitaloficial/" target="_blank" className="bg-[#ffffff] rounded-full w-10 h-10 mr-[24px] flex items-center justify-center">
 												<FontAwesomeIcon className="text-red" icon={faInstagram} />
-											</Link>
-											<Link className="bg-[#ffffff] rounded-full w-10 h-10 mr-[24px] flex items-center justify-center" to="">
+											</a>
+											<a href="https://www.tiktok.com/@medical_dent" target="_blank" className="bg-[#ffffff] rounded-full w-10 h-10 mr-[24px] flex items-center justify-center">
 												<FontAwesomeIcon className="text-red" icon={faTiktok} />
-											</Link>
+											</a>
 										</div>
 									</section>
 								</div>
