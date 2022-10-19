@@ -7,13 +7,13 @@ import {
   faXmark,
 } from '@fortawesome/free-solid-svg-icons'
 
-const modal = () => {
+const Modal = ({specialist,handleModal}) => {
   return (
     <React.Fragment>
-        <div className="bg-[#3C4C59] w-full h-screen bg-opacity-25 flex items-center justify-center">
+        <div className="bg-[#0c0c0c] w-full h-screen bg-opacity-75 flex items-center justify-center fixed top-0 left-0 z-[9999]">
           <div className="bg-[#ffffff] h-screen md:h-min p-[20px] lg:p-[50px] md:rounded-[20px] lg:w-[900px] relative overflow-auto">
-            <FontAwesomeIcon className="text-[30px] lg:text-[20px] absolute top-[15px] lg:top-[25px] right-[15px] lg:right-[25px] cursor-pointer" icon={faXmark} />
-            <h1 className="text-red text-[22px] lg:text-[32px] font-bold mb-[10px]">Mensaje enviado</h1>
+            <FontAwesomeIcon className="text-[30px] lg:text-[20px] absolute top-[15px] lg:top-[25px] right-[15px] lg:right-[25px] cursor-pointer" icon={faXmark} onClick={() => handleModal(false)} />
+            <h1 className="text-red text-[22px] lg:text-[32px] font-bold mb-[10px]">{specialist}</h1>
             <p className="text-gray text-[18px] lg:text-[24px]">Especialista en Radiología Oral y Maxilofacial</p>
             <div className="mt-[20px] lg:mt-[50px]">
               <div className="flex items-center mb-[10px]">
@@ -42,4 +42,4 @@ const modal = () => {
   )
 }
 
-export default modal ;
+export default Modal ;

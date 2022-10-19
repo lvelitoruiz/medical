@@ -24,6 +24,8 @@ const CasosClinicos = () => {
 		
 		dispatch( startLoadingBanners( ) );
 
+
+
 	}, [dispatch]);
 	
 

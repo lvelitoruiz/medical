@@ -61,7 +61,7 @@ const Diagnostic = ({elementIndex,diagnosticArray}) => {
             <div className=" border-2 border-smoke py-5 px-[25px] lg:px-[75px]">
               <h3 className="text-gray text-2xl font-bold mb-[10px]">Especialidades</h3>
             </div>
-            <ul className="text-black-light xl:text-base text-sm font-bold xl:text-left xl:ml-14 ml-5 flex overflow-x-scroll justify-between content-center xl:flex-col xl:w-3/4">
+            <ul className="text-black-light xl:text-base text-sm font-bold xl:text-left xl:ml-14 ml-5 flex overflow-x-hidden justify-between content-center xl:flex-col xl:w-3/4">
                         {
 													(servicesDigital.length) ? 
 													servicesDigital.map( (elmt,index) => {
