@@ -23,6 +23,8 @@ const DigitalLab = ({location}) => {
 	}, [dispatch]);
 
 	const [elementIndex,setElementIndex] = useState(null);
+
+	const itemLocal = typeof window !== 'undefined' && localStorage.getItem('labLocal');
 	
 	const { banners } = useSelector( state => state.banners);
 	const {laboratories} = useSelector( state => state.laboratories);
@@ -55,7 +57,16 @@ const DigitalLab = ({location}) => {
 	},[atribs])
 
 	useEffect(() => {
-		setElementIndex(location.state.getElement)
+		if(location.state !== null) {
+			setElementIndex(location.state.getElement);
+			typeof window !== 'undefined' && localStorage.setItem('labLocal',location.state.getElement);
+		} else {
+			if(itemLocal !== null) {
+				setElementIndex(parseInt(itemLocal))
+			} else {
+				setElementIndex(0);
+			}
+		}
 	}, [location])
 
 

@@ -143,7 +143,7 @@ const JoinUs = () => {
 																<p className="font-normal pb-[8px] pl-[16px]">Apellidos</p>
 																<input onChange={handleChange}
 																	onBlur={handleBlur}
-																	value={values.lastname} name="lastname" className="py-[8px] px-[16px] rounded-full w-full bg-[#ffffff] placeholder:text-gray placeholder:font-normal" type="text" placeholder="Escriba aquí" />
+																	value={values.lastname} name="lastname" className="py-[8px] px-[16px] rounded-full w-full bg-[#ffffff] placeholder:text-gray placeholder:font-normal" type="text" placeholder="Tu nombre" />
 																<p className="p-2 text-red">{errors.lastname && touched.lastname && errors.lastname}</p>
 															</div>
 														</div>
@@ -152,7 +152,7 @@ const JoinUs = () => {
 																<p className="font-normal pb-[8px] pl-[16px]">Fecha de nacimiento</p>
 																<input onChange={handleChange}
 																	onBlur={handleBlur}
-																	value={values.birth} name="birth" className="py-[8px] px-[16px] rounded-full w-full bg-[#ffffff] placeholder:text-gray placeholder:font-normal" type="date" placeholder="Escriba aquí" />
+																	value={values.birth} name="birth" className="py-[8px] px-[16px] rounded-full w-full bg-[#ffffff] placeholder:text-gray placeholder:font-normal" type="date" placeholder="Tus apellidos" />
 																<p className="p-2 text-red">{errors.birth && touched.birth && errors.birth}</p>
 															</div>
 														</div>
@@ -162,7 +162,7 @@ const JoinUs = () => {
 																<input onChange={handleChange}
 																	onBlur={handleBlur}
 																	value={values.dni}
-																	name="dni" className="py-[8px] px-[16px] rounded-full w-full bg-[#ffffff] placeholder:text-gray placeholder:font-normal" type="text" placeholder="87654321" />
+																	name="dni" className="py-[8px] px-[16px] rounded-full w-full bg-[#ffffff] placeholder:text-gray placeholder:font-normal" type="text" placeholder="Tu número de DNI" />
 																<p className="p-2 text-red">{errors.dni && touched.dni && errors.dni}</p>
 															</div>
 														</div>
@@ -182,7 +182,7 @@ const JoinUs = () => {
 																<input onChange={handleChange}
 																	onBlur={handleBlur}
 																	value={values.cellphone} name="cellphone" 
-																	className="py-[8px] px-[16px] rounded-full w-full bg-[#ffffff] placeholder:text-gray placeholder:font-normal" type="number" placeholder="945910122" />
+																	className="py-[8px] px-[16px] rounded-full w-full bg-[#ffffff] placeholder:text-gray placeholder:font-normal" type="number" placeholder="Tu número telefónico" />
 																<p className="p-2 text-red">{errors.cellphone && touched.cellphone && errors.cellphone}</p>
 															</div>
 														</div>
@@ -191,7 +191,7 @@ const JoinUs = () => {
 																<p className="font-normal pb-[8px] pl-[16px]">Dirección</p>
 																<input onChange={handleChange}
 																	onBlur={handleBlur}
-																	value={values.location} name="location" className="py-[8px] px-[16px] rounded-full w-full bg-[#ffffff] placeholder:text-gray placeholder:font-normal" type="text" placeholder="Jr. Crocane 420" />
+																	value={values.location} name="location" className="py-[8px] px-[16px] rounded-full w-full bg-[#ffffff] placeholder:text-gray placeholder:font-normal" type="text" placeholder="Tu dirección" />
 																<p className="p-2 text-red">{errors.location && touched.location && errors.location}</p>
 															</div>
 														</div>
@@ -236,7 +236,7 @@ const JoinUs = () => {
 																<p className="font-normal pb-[8px] pl-[16px]">Cop</p>
 																<input onChange={handleChange}
 																	onBlur={handleBlur}
-																	value={values.cop} name="cop" className="py-[8px] px-[16px] rounded-full w-full bg-[#ffffff] placeholder:text-gray placeholder:font-normal" type="number" placeholder="9895" />
+																	value={values.cop} name="cop" className="py-[8px] px-[16px] rounded-full w-full bg-[#ffffff] placeholder:text-gray placeholder:font-normal" type="number" placeholder="Número COP" />
 																<p className="p-2 text-red">{errors.cop && touched.cop && errors.cop}</p>
 															</div>
 														</div>

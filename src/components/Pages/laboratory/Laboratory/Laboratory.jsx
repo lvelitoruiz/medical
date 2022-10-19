@@ -31,7 +31,7 @@ const Laboratory = ({elementIndex,laboratoriesArray}) => {
         }
       });
 		setServices(laboratory);
-	} , [laboratoriesArray]);
+	} , [elementIndex]);
 
   const handleChange = (key) => {
     let service = [];
@@ -57,7 +57,7 @@ const Laboratory = ({elementIndex,laboratoriesArray}) => {
       <div className="container">
         <div className="xl:grid xl:grid-cols-12 mb-[160px]">
           <nav className="xl:col-span-4 pt-[20px] lg:pt-[80px]">
-            <ul className="text-black-light xl:text-base text-sm font-bold xl:text-left xl:ml-14 ml-5 flex overflow-x-scroll justify-between content-center xl:flex-col xl:w-3/4">
+            <ul className="text-black-light xl:text-base text-sm font-bold xl:text-left xl:ml-14 ml-5 flex overflow-x-hidden justify-between content-center xl:flex-col xl:w-3/4">
                         {
 													(servicesImages.length) ? 
 													servicesImages.map( (elmt,index) => {
