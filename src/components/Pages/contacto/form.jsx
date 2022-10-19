@@ -12,7 +12,7 @@ import {
 import {
 	faFacebookF,
 	faInstagram,
-	faLinkedinIn
+	faTiktok
 }	from '@fortawesome/free-brands-svg-icons'
 
 const Form = () => {
@@ -35,15 +35,15 @@ const Form = () => {
 									<div className="mb-[24px]">
 										<p className="text-gray mb-[10px]">Síguenos</p>
 										<div className="flex items-center mt-[24px]">
-											<Link className="mr-[40px] flex items-center justify-center" to="">
+											<a href="https://www.facebook.com/medicaldentdigital/" target="_blank" className="bg-[#ffffff] rounded-full w-10 h-10 mr-[24px] flex items-center justify-center">
 												<FontAwesomeIcon className="text-red" icon={faFacebookF} />
-											</Link>
-											<Link className="mr-[40px] flex items-center justify-center" to="">
+											</a>
+											<a href="https://www.instagram.com/medicaldentdigitaloficial/" target="_blank" className="bg-[#ffffff] rounded-full w-10 h-10 mr-[24px] flex items-center justify-center">
 												<FontAwesomeIcon className="text-red" icon={faInstagram} />
-											</Link>
-											<Link className="mr-[40px] flex items-center justify-center" to="">
-												<FontAwesomeIcon className="text-red" icon={faLinkedinIn} />
-											</Link>
+											</a>
+											<a href="https://www.tiktok.com/@medical_dent" target="_blank" className="bg-[#ffffff] rounded-full w-10 h-10 mr-[24px] flex items-center justify-center">
+												<FontAwesomeIcon className="text-red" icon={faTiktok} />
+											</a>
 										</div>
 									</div>
 								</div>

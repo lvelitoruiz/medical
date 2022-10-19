@@ -13,7 +13,7 @@ import { useEffect } from "react";
 import { IMGURL } from "../../../../consts/constants";
 import { startLoadingStaff } from "../../../../actions/staff";
 
-const OurStaff = () => {
+const OurStaff = ({handleModal,setDoctorName}) => {
 
 	const dispatch = useDispatch();
 
@@ -34,6 +34,11 @@ const OurStaff = () => {
 		));
 		setInfo(info);
 	} , [staff]);
+
+	const handleFunctions = (specialist) => {
+		handleModal(true);
+		setDoctorName(specialist);
+	}
 	
 	const pagination = {
 		clickable: true,
@@ -89,9 +94,9 @@ const OurStaff = () => {
 																</div>
 																<p className="text-[18px] lg:text-[24px] font-bold mt-[26px] mb-[10px] leading-[32px]">{element.name}</p>
 																<p className="text-gray font-base font-medium mb-8">{element.specialty}</p>
-																<Link to="/modal" className="border border-solid border-red text-red text-[16px] font-semibold py-2 px-6 rounded-full">
+																<span className="border cursor-pointer border-solid border-red text-red hover:bg-red hover:text-white text-[16px] font-semibold py-2 px-6 rounded-full" onClick={() => handleFunctions(element.name)}>
 																	<span>Ver más</span>
-																</Link>
+																</span>
 															</div>
 														</div>
 													</SwiperSlide>

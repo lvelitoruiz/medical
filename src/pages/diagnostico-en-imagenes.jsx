@@ -23,6 +23,8 @@ const DiagnosticImaging = ({location}) => {
 	
 	const [elementIndex,setElementIndex] = useState(null);
 
+	const itemLocal = typeof window !== 'undefined' && localStorage.getItem('indexLocal');
+
 	const { banners } = useSelector( state => state.banners);
 	const {diagnostics} = useSelector( state => state.diagnostics);
 
@@ -48,7 +50,7 @@ const DiagnosticImaging = ({location}) => {
 	},[banners])
 
 	useEffect(() => {
-		if(atribs !== null && location.state.getElement !== null) {
+		if(atribs !== null) {
 			const url = atribs.diagnosticImageDate.data[0].attributes.url;
 			setImage(url);
 			setTitle(atribs.diagnosticTitle);
@@ -56,10 +58,21 @@ const DiagnosticImaging = ({location}) => {
 	},[atribs])
 
 	useEffect(() => {
-		setElementIndex(location.state.getElement)
+		console.log('the local item: **** ',itemLocal);
+		if(location.state !== null) {
+			setElementIndex(location.state.getElement);
+			typeof window !== 'undefined' && localStorage.setItem('indexLocal',location.state.getElement);
+		} else {
+			if(itemLocal !== null) {
+				setElementIndex(parseInt(itemLocal))
+			} else {
+				setElementIndex(0);
+			}
+		}
 	}, [location])
 
 	// useEffect( () => {
+	// 	console.log('element index: ',elementIndex);
 	// }, [elementIndex])
 
 	return(

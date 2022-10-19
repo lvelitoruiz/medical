@@ -19,9 +19,9 @@ const Contact = () => {
                     <div className="col-lg-7 py-[48px]">
                         <h4 className="text-[#ffffff] font-semibold text-[24px] leading-[32px] mb-[24px]">Si tiene alguna duda sobre algún servicio</h4>
                         <p className="text-[#ffffff] font-normal mb-[24px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus imperdiet convallis efficitur. Aenean et justo vitae mi pharetra iaculis a ac ante.</p>
-                        <Link className="flex items-center justify-center" href="">
+                        <Link className="flex items-center justify-center" to="/contacto">
                             <span className="text-[#ffffff] text-[16px] font-semibold">Contáctenos</span>
-                            <FontAwesomeIcon className="text-[#ffffff] ml-[7px]" icon={faArrowRight} to="/contacto" />
+                            <FontAwesomeIcon className="text-[#ffffff] ml-[7px]" icon={faArrowRight} />
                         </Link>
                     </div>
                 </div>

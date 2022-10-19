@@ -63,7 +63,7 @@ const Caso = ({location,params}) => {
 								<h1 className="text-center font-semibold text-[30px] lg:text-[40px] text-[#607D8B] leading-[38px] lg:leading-[48px]">{clinicCase.title}</h1>
 							</div>
 							<div className="col-12 pt-[48px]">
-								<div className="flex items-center justify-center">
+								{/* <div className="flex items-center justify-center">
 									<p className="text-[#B0BEC5]">Compartir:</p>
 									<div className="flex items-center ml-[10px]">
 										<a href="/#">
@@ -79,7 +79,7 @@ const Caso = ({location,params}) => {
 											<FontAwesomeIcon className="text-[#B0BEC5] mr-[16px]" icon={faEnvelope} />
 										</a>
 									</div>
-								</div>
+								</div> */}
 							</div>
 							<div className="col-lg-12 pt-[48px]">
 								{

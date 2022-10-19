@@ -6,7 +6,7 @@ import { Link } from "gatsby";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useSelector } from "react-redux";
 import { useState } from "react";
-import { Pagination } from 'swiper';
+import { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
@@ -88,7 +88,8 @@ const Services = () => {
 									</div>
 									<div className="row justify-around grid-cols-12">
 										<Swiper
-											modules={[Pagination]}
+											modules={[Navigation,Pagination]}
+											navigation
 											pagination={pagination}
 											breakpoints={{
 												640: {
