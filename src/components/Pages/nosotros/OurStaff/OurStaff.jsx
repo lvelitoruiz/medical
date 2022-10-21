@@ -35,8 +35,8 @@ const OurStaff = ({handleModal,setDoctorName}) => {
 		setInfo(info);
 	} , [staff]);
 
-	const handleFunctions = (specialist) => {
-		handleModal(true);
+	const handleFunctions = (specialist,item) => {
+		handleModal(true,item);
 		setDoctorName(specialist);
 	}
 	
@@ -94,7 +94,7 @@ const OurStaff = ({handleModal,setDoctorName}) => {
 																</div>
 																<p className="text-[18px] lg:text-[24px] font-bold mt-[26px] mb-[10px] leading-[32px]">{element.name}</p>
 																<p className="text-gray font-base font-medium mb-8">{element.specialty}</p>
-																<span className="border cursor-pointer border-solid border-red text-red hover:bg-red hover:text-white text-[16px] font-semibold py-2 px-6 rounded-full" onClick={() => handleFunctions(element.name)}>
+																<span className="border cursor-pointer border-solid border-red text-red hover:bg-red hover:text-white text-[16px] font-semibold py-2 px-6 rounded-full" onClick={() => handleFunctions(element.name,element)}>
 																	<span>Ver más</span>
 																</span>
 															</div>
