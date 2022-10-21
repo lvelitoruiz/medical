@@ -17,6 +17,8 @@ const Nosotros = () => {
 	const [openModal,setOpenmodal] = useState(false);
 	const [doctor,setDoctor] = useState("");
 
+	const [doctorItem,setDoctorItem] = useState(null);
+
 	useEffect( () => {
 		setDoctorname('Magaly Quispe');
 	},[]);
@@ -25,8 +27,9 @@ const Nosotros = () => {
 		setDoctor(doc)
 	}
 
-	const handleModal = (value) => {
+	const handleModal = (value,item) => {
 		setOpenmodal(value);
+		setDoctorItem(item);
 	}
 
 	return(
@@ -40,7 +43,7 @@ const Nosotros = () => {
 			<Footer />
 			{
 				(openModal) ?
-				<Modal specialist={doctor} handleModal={handleModal} /> : ""
+				<Modal specialist={doctor} doctorItem={doctorItem} handleModal={handleModal} /> : ""
 			}
 		</React.Fragment>
 	);
