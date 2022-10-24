@@ -8,9 +8,10 @@ import { AboutUs } from "../components/Pages/nosotros/About-us/About-us";
 import { Ubications } from "../components/Pages/home/Ubications/Ubications";
 import { OurValues } from "../components/Pages/nosotros/OurValues/OurValues";
 import { OurStaff } from "../components/Pages/nosotros/OurStaff/OurStaff";
-import Modal from "./modal";
 import { useState } from "react";
 import { useEffect } from "react";
+import Modal from "../components/Modal/modal";
+
 
 const Nosotros = () => {
 
