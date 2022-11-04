@@ -150,8 +150,8 @@ const Form = () => {
 																	value={values.subject}
 																	name="subject" className="py-[8px] px-[16px] rounded-full w-full bg-[#ffffff]">
 																	<option value="">Selecciona</option>
-																	<option value="1">Asunto 1</option>
-																	<option value="2">Asunto 2</option>
+																	<option value="1">Bolsa de trabajo</option>
+																	<option value="2">General</option>
 																</select>
 																<p className="p-2 text-red">{errors.subject && touched.subject && errors.subject}</p>
 															</div>

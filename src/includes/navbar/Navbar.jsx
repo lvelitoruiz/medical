@@ -130,7 +130,7 @@ const Navbar = ( { diagnosticsMenu = false, laboratoriesMenu = false} ) => {
 											<Link to="/contacto">Contacto</Link>
 										</li>
 										<li className="font-semibold px-[15px] lg:pr-0 lg:pl-[10px] py-[10px] lg:py-0 whitespace-nowrap">
-											<a href="http://www.medicaldentdigital.pe/panel/" target="_blank" className="text-[#ffffff] inline-block rounded-full py-[6px] px-[24px] bg-red font-semibold text-[16px]">
+											<a href="https://intranet.medicaldentdigital.pe/" target="_blank" className="text-[#ffffff] inline-block rounded-full py-[6px] px-[24px] bg-red font-semibold text-[16px]">
 												<span>Intranet</span>
 												<FontAwesomeIcon className="ml-[10px]" icon={faAngleRight} />
 											</a>
