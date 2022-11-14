@@ -40,10 +40,8 @@ const Form = () => {
 		  };
 
 		await axios(config).then(response => {
-			if(response.data.details.data.status) {
 				console.log('mail enviado correctamente');
 				setMailSent(true);
-			}
 		});
 
 	} 
