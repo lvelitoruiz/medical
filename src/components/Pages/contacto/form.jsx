@@ -80,7 +80,7 @@ const Form = () => {
 								{
 									(!mailSent) ?
 									<Formik
-										initialValues={{ email: '', username: '', lastname: '', cellphone: '', message: '', subject: '' }}
+										initialValues={{ email: '', username: '', lastname: '', cellphone: '', message: '', subject: '', img: '' }}
 										validate={values => {
 											const errors = {};
 											if (!values.email) {
@@ -203,7 +203,7 @@ const Form = () => {
 																	<p className="p-2 text-red">{errors.subject && touched.subject && errors.subject}</p>
 																</div>
 															</div>
-															{/* <div className="col-md-12">
+															<div className="col-md-12">
 																<div className="mb-[20px]">
 																	<p className="font-normal pb-[8px] pl-[16px]">Adjuntar archivos</p>
 																	<div>
@@ -214,7 +214,7 @@ const Form = () => {
 																		</label>
 																	</div>
 																</div>
-															</div> */}
+															</div>
 															<div className="col-md-12">
 																<div className="mb-[20px]">
 																	<p className="font-normal pb-[8px] pl-[16px]">Comentarios o Preguntas</p>
