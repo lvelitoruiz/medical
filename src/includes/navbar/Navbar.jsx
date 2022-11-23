@@ -129,6 +129,12 @@ const Navbar = ( { diagnosticsMenu = false, laboratoriesMenu = false} ) => {
 										<li className="font-semibold px-[15px] lg:px-[10px] py-[10px] lg:py-0">
 											<Link to="/contacto">Contacto</Link>
 										</li>
+										<li className="font-semibold px-[15px] lg:px-[10px] py-[10px] lg:py-0">
+											<a href="#" target="_blank" className="text-[#ffffff] inline-block rounded-full py-[6px] px-[24px] bg-red font-semibold text-[16px]">
+												<span>Resultados en Línea</span>
+												<FontAwesomeIcon className="ml-[10px]" icon={faAngleRight} />
+											</a>
+										</li>
 										<li className="font-semibold px-[15px] lg:pr-0 lg:pl-[10px] py-[10px] lg:py-0 whitespace-nowrap">
 											<a href="https://intranet.medicaldentdigital.pe/" target="_blank" className="text-[#ffffff] inline-block rounded-full py-[6px] px-[24px] bg-red font-semibold text-[16px]">
 												<span>Intranet</span>
