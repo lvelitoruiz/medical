@@ -64,7 +64,7 @@ const Footer = () => {
 										<Link className="text-[16px] mb-[24px]" to="/nosotros" state={{ getElement: 2 }}>
 											Nuestras Sedes
 										</Link>
-										<button className="text-[#ffffff] rounded-full w-48 p-[6px] bg-red font-semibold text-[16px]"><Link to="/" state={{ moveToElement: true }}>Afíliate</Link></button>
+										<button className="text-[#ffffff] rounded-full w-48 p-[6px] bg-red font-semibold text-[16px]"><Link to="/#joinUs" state={{ moveToElement: true }}>Afíliate</Link></button>
 									</section>
 								</div>
 

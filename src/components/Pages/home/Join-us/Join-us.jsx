@@ -231,13 +231,26 @@ const JoinUs = () => {
 																		onBlur={handleBlur}
 																		value={values.specialty} name="specialty" className="py-[8px] px-[16px] rounded-full w-full bg-[#ffffff]">
 																		<option value="">Seleccionar</option>
-																		{
-																			(servicesDigital.length) ? 
-																			servicesDigital.map( (elmt,index) => {
-																				return(<option value={elmt.title} key={index}>{elmt.title}</option>)
-																			})
-																			: ""
-																		}
+																		<option value="Cirugía Maxilofacial">Cirugía Maxilofacial</option>
+																		<option value="Endodoncia">Endodoncia</option>
+																		<option value="Implantología">Implantología</option>
+																		<option value="Odontología Preventiva">Odontología Preventiva</option>
+																		<option value="Odontopediatría">Odontopediatría</option>
+																		<option value="Ortodoncia">Ortodoncia</option>
+																		<option value="Periodoncia">Periodoncia</option>
+																		<option value="Rehabilitación Oral">Rehabilitación Oral</option>
+																		<option value="Implantología Oral Integral">Implantología Oral Integral</option>
+																		<option value="Odontólogo General">Odontólogo General</option>
+																		<option value="Ortodoncia y Ortopedia Maxilar">Ortodoncia y Ortopedia Maxilar</option>
+																		<option value="Endodoncia">Endodoncia</option>
+																		<option value="Auditoría Odontológica">Auditoría Odontológica</option>
+																		<option value="Cirugía Bucal Máxilo Facial">Cirugía Bucal Máxilo Facial</option>
+																		<option value="Estomatología de Pacientes Especiales">Estomatología de Pacientes Especiales</option>
+																		<option value="Medicina y Patología Estomatológica">Medicina y Patología Estomatológica</option>
+																		<option value="Odontología Restauradora y Estética">Odontología Restauradora y Estética</option>
+																		<option value="Periodoncia e Implantes">Periodoncia e Implantes</option>
+																		<option value="Radiología Bucal y Máxilo facial">Radiología Bucal y Máxilo facial</option>
+																		<option value="Salud Pública Estomatológica">Salud Pública Estomatológica</option>
 																	</select>
 																	<p className="p-2 text-red">{errors.specialty && touched.specialty && errors.specialty}</p>
 																</div>

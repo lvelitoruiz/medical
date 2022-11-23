@@ -76,7 +76,9 @@ const IndexPage = () => {
 			<Info />
 			<Services />
 			<Testimonial />
-			<JoinUs />
+			<div id="joinUs">
+				<JoinUs />
+			</div>
 			<Ubications />
 			<Footer />
 		</React.Fragment>
