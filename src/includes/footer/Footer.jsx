@@ -125,7 +125,7 @@ const Footer = () => {
 											<a href="https://www.instagram.com/medicaldentdigitaloficial/" target="_blank" className="bg-[#ffffff] rounded-full w-10 h-10 mr-[24px] flex items-center justify-center">
 												<FontAwesomeIcon className="text-red" icon={faInstagram} />
 											</a>
-											<a href="https://www.tiktok.com/@medical_dent" target="_blank" className="bg-[#ffffff] rounded-full w-10 h-10 mr-[24px] flex items-center justify-center">
+											<a href="https://www.tiktok.com/@medical.dent?_t=8XSbrjU7pYr&_r=1" target="_blank" className="bg-[#ffffff] rounded-full w-10 h-10 mr-[24px] flex items-center justify-center">
 												<FontAwesomeIcon className="text-red" icon={faTiktok} />
 											</a>
 										</div>

@@ -131,7 +131,7 @@ const Navbar = ( { diagnosticsMenu = false, laboratoriesMenu = false} ) => {
 										</li>
 										<li className="font-semibold px-[15px] lg:px-[10px] py-[10px] lg:py-0">
 											<a href="#" target="_blank" className="text-[#ffffff] inline-block rounded-full py-[6px] px-[24px] bg-red font-semibold text-[16px]">
-												<span>Resultados en Línea</span>
+												<span>Res. en Línea</span>
 												<FontAwesomeIcon className="ml-[10px]" icon={faAngleRight} />
 											</a>
 										</li>
